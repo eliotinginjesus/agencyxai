@@ -1,33 +1,95 @@
 {
   "products": [
     {
-      "id": "NB-ACR-60x120",
-      "keywords": ["neon box", "acrylic", "60x120", "60 x 120", "nb-acr-60x120", "1,2 juta"],
+      "id": "AGENCY-INFO",
+      "keywords": ["ignite", "agency", "digital agency", "kontak", "email", "full service", "tentang"],
       "data": {
-        "name": "Neon Box Acrylic 60x120cm",
-        "price": "mulai dari Rp 1.200.000",
-        "production_time": "3-5 hari",
-        "description": "Neon box acrylic dua sisi, sudah termasuk lampu LED dan visual."
+        "name": "IGNite - Full-Service Digital Agency",
+        "tagline": "Design + Develop + Marketing In One Place",
+        "description": "Smart design. Scalable systems. Real results.",
+        "email": "igniteinfo@gmail.com",
+        "sections": ["Marketing", "Design", "Web Development"]
       }
     },
     {
-      "id": "NH-CUSTOM",
-      "keywords": ["neon huruf", "huruf timbul", "custom", "satuan", "per huruf", "nh-custom"],
+      "id": "SERV-DESIGN",
+      "keywords": ["design", "desain", "ui", "ux", "logo", "branding", "visual", "serv-design"],
       "data": {
-        "name": "Neon Huruf Timbul Custom",
-        "price": "mulai dari Rp 90.000 per huruf (tinggi 10cm)",
-        "production_time": "2-4 hari",
-        "description": "Bahan acrylic, harga tergantung ukuran dan kerumitan desain."
+        "name": "Design Services",
+        "description": "We craft digital experiences that feel effortless and look exceptional. From brand identity to responsive UI/UX design, our goal is to make your business stand out.",
+        "action": "Contact US"
       }
     },
     {
-      "id": "UMUM",
-      "keywords": ["lokasi", "alamat", "di mana", "pontianak", "kontak", "jam kerja", "buka"],
+      "id": "SERV-MKT",
+      "keywords": ["marketing", "pemasaran", "seo", "ads", "iklan", "social media", "growth", "serv-mkt"],
       "data": {
-        "name": "Informasi Umum Sinar Box",
-        "address": "Jalan Merdeka No. 123, Pontianak",
-        "phone": "0812-3456-7890",
-        "hours": "Senin - Sabtu, 08:00 - 17:00"
+        "name": "Marketing Services",
+        "description": "We help your brand get seen by the right people. Through SEO, content strategy, and paid campaigns, we drive measurable growth and build lasting visibility.",
+        "action": "Contact US"
+      }
+    },
+    {
+      "id": "SERV-WEBDEV",
+      "keywords": ["web development", "website", "coding", "pembuatan web", "programmer", "serv-webdev"],
+      "data": {
+        "name": "Web Development Services",
+        "description": "We turn ideas into fast, scalable, and secure websites. Whether it's a custom-coded platform we focus on performance, reliability, and user-friendly interfaces.",
+        "action": "Contact US"
+      }
+    },
+    {
+      "id": "STATS-PERF",
+      "keywords": ["statistik", "perform", "data", "klien", "traffic", "kepuasan", "rating"],
+      "data": {
+        "title": "Our Performance",
+        "sme_clients": "+3 Small and Medium Enterprises",
+        "satisfaction_score": "4.9 Satisfaction Client",
+        "traffic_growth": "+180% average client traffic growth in just 3 months"
+      }
+    },
+    {
+      "id": "CASE-STUDIES",
+      "keywords": ["portfolio", "portofolio", "klien", "case study", "contoh", "hasil kerja", "penjahit tji phin", "cutlab", "awcademy"],
+      "data": {
+        "title": "Explore Our Case",
+        "projects": [
+          "Penjahit Tji Phin (Fashion/Tailor)",
+          "CutLab Studio (Laser Cutting Services)",
+          "AWCADEMY (Education/Course)"
+        ]
+      }
+    },
+    {
+      "id": "TESTIMONIALS",
+      "keywords": ["review", "testimoni", "kata klien", "ulasan", "arif wijaya", "dewi kartika"],
+      "data": {
+        "title": "What clients say",
+        "reviews": [
+          {
+            "client_name": "Arif Wijaya",
+            "role": "CEO, Dapur Nusantara",
+            "quote": "Some clients just need one piece, others need the full package and we handle both. We help businesses transform their online presence."
+          },
+          {
+            "client_name": "Dewi Kartika",
+            "role": "Marketing Manager, Lokal Mode",
+            "quote": "Some clients just need one piece, others need the full package and we handle both. We help businesses transform their online presence."
+          }
+        ]
+      }
+    },
+    {
+      "id": "FAQ-GEN",
+      "keywords": ["faq", "pertanyaan", "tanya jawab", "harga", "lama pengerjaan", "proses"],
+      "data": {
+        "title": "Frequently Asked Questions",
+        "questions": [
+          "What services do you offer?",
+          "How long does it take to complete a project?",
+          "Do you work with small businesses or only large companies?",
+          "How much does a project cost?"
+        ]
       }
     }
   ]
