@@ -529,18 +529,13 @@
                         <p class="text-[10px] text-blue-100 flex items-center gap-1.5"><span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> Online & Ready</p>
                     </div>
                 </div>
-                <div>
-                    <button id="clear-btn" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors" title="Hapus Percakapan">
-                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                    </button>
-                    <button onclick="toggleChat()" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors" title="Tutup">
-                        <i data-lucide="x" class="w-5 h-5"></i>
-                    </button>
-                </div>
+                <button onclick="toggleChat()" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
             </div>
             
             <!-- Messages Area -->
-            <div id="chat-box" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4 scroll-smooth">
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4 scroll-smooth">
                 <!-- Welcome Message -->
                 <div class="flex gap-3 items-start">
                     <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1">
@@ -555,9 +550,9 @@
 
             <!-- Input Area -->
             <div class="p-3 bg-white border-t border-slate-100">
-                <form id="chat-form" class="flex gap-2 relative">
-                    <input type="text" id="user-input" placeholder="Ketik pesan Anda..." class="flex-1 pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all" autocomplete="off">
-                    <button type="submit" id="send-btn" class="absolute right-1 top-1 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                <form onsubmit="handleChatSubmit(event)" class="flex gap-2 relative">
+                    <input type="text" id="chat-input" placeholder="Ketik pesan Anda..." class="flex-1 pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all" autocomplete="off">
+                    <button type="submit" class="absolute right-1 top-1 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed" id="send-btn">
                         <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
                     </button>
                 </form>
@@ -647,9 +642,10 @@
         // --- CHAT WIDGET LOGIC ---
         const chatWindow = document.getElementById('chat-window');
         const chatBtn = document.getElementById('chat-btn');
-        const chatInput = document.getElementById('user-input'); // Disesuaikan dengan ID baru
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
         let isChatOpen = false;
-        let welcomeMessageShown = false; // Flag untuk memastikan pesan sambutan hanya muncul sekali
 
         function toggleChat() {
             isChatOpen = !isChatOpen;
@@ -660,11 +656,6 @@
                     chatWindow.classList.remove('scale-95', 'opacity-0');
                     chatBtn.classList.add('scale-0', 'opacity-0'); // Hide button when open
                     chatInput.focus();
-                    // Hapus pesan sambutan default jika obrolan dari localStorage sudah dimuat oleh script.js
-                    if (document.getElementById('chat-box').children.length > 1 && !welcomeMessageShown) {
-                        document.querySelector('#chat-box .flex.gap-3.items-start')?.remove();
-                        welcomeMessageShown = true;
-                    }
                 }, 10);
             } else {
                 chatWindow.classList.add('scale-95', 'opacity-0');
@@ -672,6 +663,93 @@
                 setTimeout(() => {
                     chatWindow.classList.add('hidden');
                 }, 300);
+            }
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // 1. Add User Message
+            addMessage(message, 'user');
+            chatInput.value = '';
+            sendBtn.disabled = true;
+
+            // 2. Simulate Typing
+            showTypingIndicator();
+
+            // 3. Simulate AI Response (Delay 1.5s)
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getAIResponse(message);
+                addMessage(response, 'ai');
+                sendBtn.disabled = false;
+                // Re-initialize icons for new elements
+                lucide.createIcons();
+            }, 1500);
+        }
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `flex gap-3 items-start ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+            
+            const avatar = sender === 'ai' 
+                ? `<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>`
+                : `<div class="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center shrink-0 text-slate-600 mt-1"><i data-lucide="user" class="w-4 h-4"></i></div>`;
+
+            const bubbleClass = sender === 'ai'
+                ? 'bg-white text-slate-600 border border-slate-100 rounded-tl-none'
+                : 'bg-blue-600 text-white rounded-tr-none';
+
+            div.innerHTML = `
+                ${avatar}
+                <div class="${bubbleClass} p-3.5 rounded-2xl shadow-sm text-sm max-w-[85%] break-words animate-fade-in-up">
+                    <p>${text}</p>
+                </div>
+            `;
+            
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            lucide.createIcons();
+        }
+
+        function showTypingIndicator() {
+            const div = document.createElement('div');
+            div.id = 'typing-indicator';
+            div.className = 'flex gap-3 items-start';
+            div.innerHTML = `
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100">
+                    <div class="flex gap-1">
+                        <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
+                        <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce delay-75"></span>
+                        <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce delay-150"></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            lucide.createIcons();
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+        }
+
+        function getAIResponse(input) {
+            input = input.toLowerCase();
+            if (input.includes('harga') || input.includes('biaya') || input.includes('cost')) {
+                return "Biaya proyek sangat bergantung pada kompleksitas dan fitur yang Anda butuhkan. Apakah Anda bisa ceritakan sedikit tentang proyek Anda?";
+            } else if (input.includes('layanan') || input.includes('service') || input.includes('bisa apa')) {
+                return "Kami menawarkan layanan lengkap mulai dari Branding, UI/UX Design, Website Development, hingga Digital Marketing.";
+            } else if (input.includes('kontak') || input.includes('hubungi') || input.includes('wa')) {
+                return "Anda bisa menghubungi kami via email di igniteinfo@gmail.com atau WhatsApp di +62 812 3456 7890.";
+            } else if (input.includes('halo') || input.includes('hi') || input.includes('pagi')) {
+                return "Halo! Senang bertemu Anda. Ada yang bisa saya bantu hari ini?";
+            } else {
+                return "Terima kasih atas pesan Anda. Tim kami akan segera meninjau pertanyaan Anda dan menghubungi kembali secepatnya.";
             }
         }
 
@@ -1020,8 +1098,5 @@
             });
         });
     </script>
-
-    <!-- Memuat skrip chatbot eksternal -->
-    <script src="script.js" defer></script>
 </body>
 </html>

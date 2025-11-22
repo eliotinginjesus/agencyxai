@@ -43,7 +43,8 @@ form.addEventListener('submit', async function (e) {
   input.value = '';
 
   // Show temporary 'thinking' bot message and keep a reference so we can update it
-  const thinkingNode = appendMessage('bot', 'Gemini is thinking...');
+  // Menggunakan indikator pengetikan dari desain baru
+  const thinkingNode = showTypingIndicator();
 
   try {
     // Send the recent history (limit to last 20 entries) so the server can build a prompt
@@ -57,23 +58,26 @@ form.addEventListener('submit', async function (e) {
     });
 
     if (!resp.ok) {
+      removeTypingIndicator();
       // Replace thinking text with an error message
-      thinkingNode.textContent = `Error: ${resp.status} ${resp.statusText}`;
+      appendMessage('bot', `Error: ${resp.status} ${resp.statusText}`);
       return;
     }
 
     const data = await resp.json();
+    removeTypingIndicator();
+
     // Update the thinking node with the reply from the server
     if (data && typeof data.reply === 'string') {
       // server may return timestamp
       const botTs = data.ts || new Date().toISOString();
-      thinkingNode.textContent = data.reply;
+      appendMessage('bot', data.reply, { timestamp: botTs });
       // store bot reply in conversation and persist
       conversation.push({ role: 'bot', content: data.reply, ts: botTs });
       if (conversation.length > 50) conversation = conversation.slice(-50);
       localStorage.setItem('conversation', JSON.stringify(conversation));
     } else {
-      thinkingNode.textContent = 'No reply from server.';
+      appendMessage('bot', 'No reply from server.');
     }
 
   } catch (err) {
@@ -83,41 +87,56 @@ form.addEventListener('submit', async function (e) {
   }
 });
 
-function appendMessage(sender, text) {
-  return appendMessage(sender, text, {});
-}
-
 // richer appendMessage that supports avatar and timestamp
 function appendMessage(sender, text, opts = {}) {
   // opts: { timestamp }
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('message', sender);
+  const div = document.createElement('div');
+  div.className = `flex gap-3 items-start ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+  
+  const avatar = sender === 'bot' 
+      ? `<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>`
+      : `<div class="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center shrink-0 text-slate-600 mt-1"><i data-lucide="user" class="w-4 h-4"></i></div>`;
 
-  const inner = document.createElement('div');
-  inner.classList.add('message-inner');
+  const bubbleClass = sender === 'bot'
+      ? 'bg-white text-slate-600 border border-slate-100 rounded-tl-none'
+      : 'bg-blue-600 text-white rounded-tr-none';
 
-  const avatar = document.createElement('div');
-  avatar.classList.add('avatar');
-  // avatar content: U for user, B for bot (simple)
-  avatar.textContent = sender === 'user' ? 'U' : 'B';
+  // Menambahkan timestamp jika ada
+  const timeStr = opts.timestamp ? new Date(opts.timestamp).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) : '';
+  const timestampHTML = timeStr ? `<p class="text-xs opacity-75 mt-2 text-right">${timeStr}</p>` : '';
 
-  const bubble = document.createElement('div');
-  bubble.classList.add('bubble');
-  bubble.textContent = text;
-
-  const ts = document.createElement('div');
-  ts.classList.add('timestamp');
-  const timeStr = opts.timestamp ? new Date(opts.timestamp).toLocaleString() : new Date().toLocaleString();
-  ts.textContent = timeStr;
-
-  inner.appendChild(avatar);
-  inner.appendChild(bubble);
-  inner.appendChild(ts);
-  wrapper.appendChild(inner);
-
-  chatBox.appendChild(wrapper);
+  div.innerHTML = `
+      ${avatar}
+      <div class="${bubbleClass} p-3.5 rounded-2xl shadow-sm text-sm max-w-[85%] break-words">
+          <p>${text}</p>
+          ${timestampHTML}
+      </div>
+  `;
+  
+  chatBox.appendChild(div);
   chatBox.scrollTop = chatBox.scrollHeight;
-  return bubble; // return bubble so callers can update text if needed
+  lucide.createIcons(); // Re-render icons
+  return div.querySelector('.break-words p'); // return bubble's text node
+}
+
+function showTypingIndicator() {
+    const div = document.createElement('div');
+    div.id = 'typing-indicator';
+    div.className = 'flex gap-3 items-start';
+    div.innerHTML = `
+        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>
+        <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100">
+            <div class="flex gap-1">
+                <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
+                <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 75ms;"></span>
+                <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 150ms;"></span>
+            </div>
+        </div>
+    `;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    lucide.createIcons();
+    return div;
 }
 
 // Clear conversation handler
@@ -145,3 +164,8 @@ async function clearConversation() {
 clearBtn?.addEventListener('click', () => {
   clearConversation();
 });
+
+function removeTypingIndicator() {
+    const indicator = document.getElementById('typing-indicator');
+    if (indicator) indicator.remove();
+}
