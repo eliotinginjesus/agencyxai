@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": "NB-ACR-60x120",
+      "keywords": ["neon box", "acrylic", "60x120", "60 x 120", "nb-acr-60x120", "1,2 juta"],
+      "data": {
+        "name": "Neon Box Acrylic 60x120cm",
+        "price": "mulai dari Rp 1.200.000",
+        "production_time": "3-5 hari",
+        "description": "Neon box acrylic dua sisi, sudah termasuk lampu LED dan visual."
+      }
+    },
+    {
+      "id": "NH-CUSTOM",
+      "keywords": ["neon huruf", "huruf timbul", "custom", "satuan", "per huruf", "nh-custom"],
+      "data": {
+        "name": "Neon Huruf Timbul Custom",
+        "price": "mulai dari Rp 90.000 per huruf (tinggi 10cm)",
+        "production_time": "2-4 hari",
+        "description": "Bahan acrylic, harga tergantung ukuran dan kerumitan desain."
+      }
+    },
+    {
+      "id": "UMUM",
+      "keywords": ["lokasi", "alamat", "di mana", "pontianak", "kontak", "jam kerja", "buka"],
+      "data": {
+        "name": "Informasi Umum Sinar Box",
+        "address": "Jalan Merdeka No. 123, Pontianak",
+        "phone": "0812-3456-7890",
+        "hours": "Senin - Sabtu, 08:00 - 17:00"
+      }
+    }
+  ]
+}
