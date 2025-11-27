@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile - IGNite Digital Agency</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Active Language Style */
+        .lang-active {
+            color: #2563EB; /* blue-600 */
+            font-weight: 700;
+        }
+        .lang-inactive {
+            color: #64748B; /* slate-500 */
+            font-weight: 500;
+        }
+        .lang-inactive:hover {
+            color: #2563EB;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white antialiased">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-blue-600 tracking-tighter">IGNite</a>
+            
+            <nav class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide">Home</a>
+                <a href="marketing.html" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_marketing">Marketing</a>
+                <a href="#design" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_design">Design</a>
+                <a href="#webdev" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_webdev">Web Development</a>
+                <a href="#" class="text-xs font-bold text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_company">Company</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-6">
+                <!-- Language Toggle (Desktop) -->
+                <div class="flex items-center gap-2 text-xs font-bold">
+                    <button onclick="setLanguage('id')" id="btn-id-desktop" class="lang-active transition-colors">ID</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('en')" id="btn-en-desktop" class="lang-inactive transition-colors">EN</button>
+                </div>
+
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5" data-key="btn_contact">
+                    Contact Us
+                </button>
+            </div>
+
+            <!-- Mobile Toggle Button -->
+            <div class="md:hidden flex items-center gap-4">
+                <div class="flex items-center gap-2 text-xs mr-2 font-bold">
+                    <button onclick="setLanguage('id')" id="btn-id-mobile-head" class="lang-active transition-colors">ID</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('en')" id="btn-en-mobile-head" class="lang-inactive transition-colors">EN</button>
+                </div>
+
+                <button id="mobile-menu-btn" class="text-blue-600 focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-6 space-y-4 shadow-xl absolute w-full h-screen z-40">
+            <a href="index.html" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50">Home</a>
+            <a href="marketing.html" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_marketing">Marketing</a>
+            <a href="#design" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_design">Design</a>
+            <a href="#" class="block text-lg font-bold text-blue-600 py-2 border-b border-gray-50" data-key="nav_company">Company</a>
+            <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-base mt-6 shadow-lg shadow-blue-600/30" data-key="btn_contact">Contact Us</button>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        
+        <!-- COMPANY HERO SECTION -->
+        <section class="w-full relative py-20 md:py-32 bg-slate-50 overflow-hidden">
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
+                        <span class="text-blue-600" data-key="comp_hero_title_1">Empowering Growth</span> <br>
+                        <span data-key="comp_hero_title_2">Through Digital Innovation</span>
+                    </h1>
+                    <p class="text-slate-500 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" data-key="comp_hero_desc">
+                        IGNite bukan sekadar agensi. Kami adalah mitra pertumbuhan strategis yang menggabungkan kreativitas, teknologi, dan data untuk membawa bisnis Anda ke level berikutnya.
+                    </p>
+                </div>
+                
+                <!-- Hero Image Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-6xl mx-auto">
+                     <div class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg transform translate-y-8">
+                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Team 1">
+                     </div>
+                     <div class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg">
+                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Team 2">
+                     </div>
+                     <div class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg transform translate-y-12">
+                         <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Team 3">
+                     </div>
+                     <div class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg transform translate-y-4">
+                         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Team 4">
+                     </div>
+                </div>
+            </div>
+            
+            <!-- Decor Elements -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-blue-200 rounded-full blur-[100px] opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-purple-200 rounded-full blur-[100px] opacity-30 translate-x-1/2 translate-y-1/2"></div>
+        </section>
+
+        <!-- OUR STORY & MISSION -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6" data-key="comp_story_title">Who We Are</h2>
+                        <div class="space-y-6 text-slate-600 leading-relaxed text-sm md:text-base text-justify">
+                            <p data-key="comp_story_p1">
+                                Lahir dari semangat untuk membantu UMKM dan bisnis berkembang di era digital yang serba cepat. IGNite didirikan dengan satu keyakinan: bahwa teknologi canggih dan desain kelas dunia seharusnya dapat diakses oleh semua bisnis yang berani bermimpi besar.
+                            </p>
+                            <p data-key="comp_story_p2">
+                                Kami memulai perjalanan ini sebagai tim kecil desainer dan developer. Hari ini, kami telah berkembang menjadi agensi layanan penuh (Full-Service Agency) yang dipercaya oleh berbagai industri untuk menangani transformasi digital mereka dari hulu ke hilir.
+                            </p>
+                        </div>
+                        
+                        <div class="flex gap-8 mt-10">
+                            <div>
+                                <h4 class="text-4xl font-bold text-blue-600 mb-1">2025</h4>
+                                <p class="text-xs font-bold uppercase tracking-wider text-slate-400" data-key="stat_founded">Founded</p>
+                            </div>
+                            <div>
+                                <h4 class="text-4xl font-bold text-blue-600 mb-1">3+</h4>
+                                <p class="text-xs font-bold uppercase tracking-wider text-slate-400" data-key="stat_projects">Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100">
+                        <div class="mb-8">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 text-blue-600">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-key="comp_mission_title">Our Mission</h3>
+                            <p class="text-slate-600 text-sm" data-key="comp_mission_desc">
+                                Memberdayakan bisnis melalui solusi digital yang inovatif, fungsional, dan estetis untuk menciptakan dampak nyata yang berkelanjutan.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 text-purple-600">
+                                <i data-lucide="eye" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-key="comp_vision_title">Our Vision</h3>
+                            <p class="text-slate-600 text-sm" data-key="comp_vision_desc">
+                                Menjadi katalis utama dalam ekosistem digital Indonesia, di mana setiap ide brilian mendapatkan panggung digital yang layak.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR VALUES -->
+        <section class="py-20 bg-slate-900 text-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-key="comp_values_title">Our Core Values</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto" data-key="comp_values_subtitle">Prinsip yang memandu setiap baris kode, setiap piksel desain, dan setiap strategi yang kami buat.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Value 1 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl hover:bg-slate-700 transition-colors border border-slate-700">
+                        <i data-lucide="users" class="w-10 h-10 text-blue-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-3" data-key="val_1_title">Client Obsessed</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-key="val_1_desc">
+                            Kami tidak hanya bekerja untuk Anda, kami bekerja bersama Anda. Kesuksesan klien adalah metrik utama keberhasilan kami.
+                        </p>
+                    </div>
+                    <!-- Value 2 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl hover:bg-slate-700 transition-colors border border-slate-700">
+                        <i data-lucide="zap" class="w-10 h-10 text-yellow-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-3" data-key="val_2_title">Agile & Innovative</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-key="val_2_desc">
+                            Dunia digital berubah cepat. Kami beradaptasi, belajar hal baru, dan selalu mencari cara yang lebih efisien.
+                        </p>
+                    </div>
+                    <!-- Value 3 -->
+                    <div class="bg-slate-800 p-8 rounded-2xl hover:bg-slate-700 transition-colors border border-slate-700">
+                        <i data-lucide="shield-check" class="w-10 h-10 text-green-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-3" data-key="val_3_title">Integrity First</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-key="val_3_desc">
+                            Transparansi dalam harga, proses, dan hasil. Kami membangun hubungan jangka panjang berbasis kepercayaan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-20 bg-blue-600 text-white">
+            <div class="container mx-auto px-4 md:px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight" data-key="cta_title">Ingin Tumbuh Bersama Kami?</h2>
+                <p class="text-blue-100 max-w-2xl mx-auto mb-10 text-lg" data-key="cta_desc">
+                    Baik Anda startup baru atau perusahaan mapan, kami siap membantu Anda mencapai tujuan digital Anda.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all" data-key="btn_wa">
+                        Hubungi via WhatsApp
+                    </button>
+                    <a href="marketing.html" class="bg-blue-700 border border-blue-500 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-800 transition-all text-center flex items-center justify-center" data-key="btn_services">
+                        Lihat Layanan Kami
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FLOATING WIDGETS (Sama seperti halaman lain) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4 font-sans pointer-events-none">
+        <div id="chat-window" class="hidden w-[90vw] md:w-96 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 flex flex-col h-[500px] max-h-[80vh] pointer-events-auto">
+            <div class="bg-blue-600 p-4 flex justify-between items-center text-white shadow-md">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <i data-lucide="bot" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">IGNite Support</h4>
+                        <p class="text-[10px] text-blue-100 flex items-center gap-1.5"><span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> Online</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4 scroll-smooth">
+                <div class="flex gap-3 items-start">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-2xl rounded-tl-none shadow-sm text-sm text-slate-600 border border-slate-100 max-w-[85%]">
+                        <p data-key="chat_welcome">Halo! 👋 Ingin tahu lebih banyak tentang IGNite?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 bg-white border-t border-slate-100">
+                <form onsubmit="handleChatSubmit(event)" class="flex gap-2 relative">
+                    <input type="text" id="user-input" placeholder="Ketik pesan Anda..." class="flex-1 pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all" autocomplete="off">
+                    <button type="submit" class="absolute right-1 top-1 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20" id="send-btn">
+                        <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <button onclick="toggleChat()" id="chat-btn" class="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-[0_10px_40px_-10px_rgba(37,99,235,0.5)] flex items-center justify-center transition-all hover:scale-110 active:scale-95 group z-50 pointer-events-auto">
+            <div class="relative">
+                <i data-lucide="message-circle" class="w-7 h-7 transition-transform group-hover:-translate-y-0.5"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 border-2 border-blue-600 rounded-full animate-bounce"></span>
+            </div>
+        </button>
+
+        <a href="https://wa.me/62895704124948" target="_blank" class="w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-[0_10px_40px_-10px_rgba(37,211,102,0.5)] flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-50 pointer-events-auto">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111827] text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-1">
+                    <div class="text-2xl font-bold text-blue-600 mb-4 tracking-tighter">IGNite</div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-key="footer_desc">
+                        Smart design. Scalable systems. Real results.
+                    </p>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-bold mb-4 text-base" data-key="footer_services">Services</h4>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                        <a href="marketing.html" class="hover:text-white transition-colors" data-key="nav_marketing">Digital Marketing</a>
+                        <a href="#" class="hover:text-white transition-colors" data-key="nav_webdev">Web Development</a>
+                        <a href="#" class="hover:text-white transition-colors" data-key="nav_design">UI/UX Design</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+                &copy; 2025 IGNite Digital Agency. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // --- TRANSLATION LOGIC ---
+        var translations = {
+            id: {
+                nav_marketing: "Pemasaran",
+                nav_design: "Desain",
+                nav_webdev: "Pengembangan Web",
+                nav_company: "Perusahaan",
+                btn_contact: "Hubungi Kami",
+                comp_hero_title_1: "Mendorong Pertumbuhan",
+                comp_hero_title_2: "Melalui Inovasi Digital",
+                comp_hero_desc: "IGNite bukan sekadar agensi. Kami adalah mitra pertumbuhan strategis yang menggabungkan kreativitas, teknologi, dan data untuk membawa bisnis Anda ke level berikutnya.",
+                comp_story_title: "Siapa Kami",
+                comp_story_p1: "Lahir dari semangat untuk membantu UMKM dan bisnis berkembang di era digital yang serba cepat. IGNite didirikan dengan satu keyakinan: bahwa teknologi canggih dan desain kelas dunia seharusnya dapat diakses oleh semua bisnis yang berani bermimpi besar.",
+                comp_story_p2: "Kami memulai perjalanan ini sebagai tim kecil desainer dan developer. Hari ini, kami telah berkembang menjadi agensi layanan penuh (Full-Service Agency) yang dipercaya oleh berbagai industri untuk menangani transformasi digital mereka dari hulu ke hilir.",
+                stat_founded: "Didirikan",
+                stat_projects: "Proyek",
+                comp_mission_title: "Misi Kami",
+                comp_mission_desc: "Memberdayakan bisnis melalui solusi digital yang inovatif, fungsional, dan estetis untuk menciptakan dampak nyata yang berkelanjutan.",
+                comp_vision_title: "Visi Kami",
+                comp_vision_desc: "Menjadi katalis utama dalam ekosistem digital Indonesia, di mana setiap ide brilian mendapatkan panggung digital yang layak.",
+                comp_values_title: "Nilai Inti Kami",
+                comp_values_subtitle: "Prinsip yang memandu setiap baris kode, setiap piksel desain, dan setiap strategi yang kami buat.",
+                val_1_title: "Terobsesi pada Klien",
+                val_1_desc: "Kami tidak hanya bekerja untuk Anda, kami bekerja bersama Anda. Kesuksesan klien adalah metrik utama keberhasilan kami.",
+                val_2_title: "Tangkas & Inovatif",
+                val_2_desc: "Dunia digital berubah cepat. Kami beradaptasi, belajar hal baru, dan selalu mencari cara yang lebih efisien.",
+                val_3_title: "Integritas Utama",
+                val_3_desc: "Transparansi dalam harga, proses, dan hasil. Kami membangun hubungan jangka panjang berbasis kepercayaan.",
+                cta_title: "Ingin Tumbuh Bersama Kami?",
+                cta_desc: "Baik Anda startup baru atau perusahaan mapan, kami siap membantu Anda mencapai tujuan digital Anda.",
+                btn_wa: "Hubungi via WhatsApp",
+                btn_services: "Lihat Layanan Kami",
+                chat_welcome: "Halo! 👋 Ingin tahu lebih banyak tentang IGNite?",
+                footer_desc: "Desain cerdas. Sistem terukur. Hasil nyata.",
+                footer_services: "Layanan"
+            },
+            en: {
+                nav_marketing: "Marketing",
+                nav_design: "Design",
+                nav_webdev: "Web Development",
+                nav_company: "Company",
+                btn_contact: "Contact Us",
+                comp_hero_title_1: "Empowering Growth",
+                comp_hero_title_2: "Through Digital Innovation",
+                comp_hero_desc: "IGNite is more than just an agency. We are a strategic growth partner combining creativity, technology, and data to take your business to the next level.",
+                comp_story_title: "Who We Are",
+                comp_story_p1: "Born from a passion to help SMEs and businesses thrive in a fast-paced digital era. IGNite was founded with one belief: that advanced technology and world-class design should be accessible to all businesses daring to dream big.",
+                comp_story_p2: "We started this journey as a small team of designers and developers. Today, we have grown into a full-service agency trusted by various industries to handle their digital transformation from end to end.",
+                stat_founded: "Founded",
+                stat_projects: "Projects",
+                comp_mission_title: "Our Mission",
+                comp_mission_desc: "To empower businesses through innovative, functional, and aesthetic digital solutions to create sustainable real-world impact.",
+                comp_vision_title: "Our Vision",
+                comp_vision_desc: "To be the main catalyst in Indonesia's digital ecosystem, where every brilliant idea gets the digital stage it deserves.",
+                comp_values_title: "Our Core Values",
+                comp_values_subtitle: "Principles that guide every line of code, every pixel of design, and every strategy we create.",
+                val_1_title: "Client Obsessed",
+                val_1_desc: "We don't just work for you, we work with you. Client success is our primary metric of success.",
+                val_2_title: "Agile & Innovative",
+                val_2_desc: "The digital world changes fast. We adapt, learn new things, and always look for more efficient ways.",
+                val_3_title: "Integrity First",
+                val_3_desc: "Transparency in pricing, process, and results. We build long-term relationships based on trust.",
+                cta_title: "Ready to Grow With Us?",
+                cta_desc: "Whether you're a new startup or an established company, we are ready to help you achieve your digital goals.",
+                btn_wa: "Contact via WhatsApp",
+                btn_services: "View Our Services",
+                chat_welcome: "Hello! 👋 Want to know more about IGNite?",
+                footer_desc: "Smart design. Scalable systems. Real results.",
+                footer_services: "Services"
+            }
+        };
+
+        var currentLang = 'id';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            var elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                var key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            updateBtnStyles('desktop');
+            updateBtnStyles('mobile-head');
+        }
+
+        function updateBtnStyles(type) {
+            var btnId = document.getElementById(`btn-id-${type}`);
+            var btnEn = document.getElementById(`btn-en-${type}`);
+            if (currentLang === 'id') {
+                btnId.className = 'lang-active transition-colors';
+                btnEn.className = 'lang-inactive transition-colors';
+            } else {
+                btnId.className = 'lang-inactive transition-colors';
+                btnEn.className = 'lang-active transition-colors';
+            }
+        }
+
+        // --- ANIMASI ANGKA (COUNT UP) - Same logic for stats ---
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('id');
+
+            // Mobile Menu Logic
+            var menuBtn = document.getElementById('mobile-menu-btn');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var isMenuOpen = false;
+            if(menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    isMenuOpen = !isMenuOpen;
+                    if(isMenuOpen) {
+                        mobileMenu.classList.remove('hidden');
+                        menuBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        menuBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+                    }
+                    lucide.createIcons();
+                });
+            }
+        });
+
+        // --- CHAT LOGIC ---
+        var apiKey = ""; 
+        var chatWindowEl = document.getElementById('chat-window');
+        var chatBtnEl = document.getElementById('chat-btn');
+        var chatMessagesEl = document.getElementById('chat-messages');
+        var chatInputEl = document.getElementById('user-input'); 
+        var sendBtnEl = document.getElementById('send-btn');
+        var isChatOpen = false;
+
+        function toggleChat() {
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                chatWindowEl.classList.remove('hidden');
+                setTimeout(() => {
+                    chatWindowEl.classList.remove('scale-95', 'opacity-0');
+                    chatBtnEl.classList.add('scale-0', 'opacity-0');
+                    chatInputEl.focus();
+                }, 10);
+            } else {
+                chatWindowEl.classList.add('scale-95', 'opacity-0');
+                chatBtnEl.classList.remove('scale-0', 'opacity-0');
+                setTimeout(() => {
+                    chatWindowEl.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        async function callGeminiAPI(userMessage) {
+            return currentLang === 'id' 
+                ? "Terima kasih telah menghubungi IGNite. Ada yang bisa kami bantu mengenai profil perusahaan kami?"
+                : "Thanks for contacting IGNite. How can we assist you regarding our company profile?";
+        }
+
+        async function handleChatSubmit(e) {
+            e.preventDefault();
+            var message = chatInputEl.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            chatInputEl.value = '';
+            
+            setTimeout(async () => {
+                var response = await callGeminiAPI(message);
+                addMessage(response, 'ai');
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            var div = document.createElement('div');
+            div.className = `flex gap-3 items-start ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+            var avatar = sender === 'ai' 
+                ? `<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>`
+                : `<div class="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center shrink-0 text-slate-600 mt-1"><i data-lucide="user" class="w-4 h-4"></i></div>`;
+            
+            var bubbleClass = sender === 'ai' ? 'bg-white text-slate-600 border border-slate-100 rounded-tl-none' : 'bg-blue-600 text-white rounded-tr-none';
+
+            div.innerHTML = `${avatar}<div class="${bubbleClass} p-3.5 rounded-2xl shadow-sm text-sm max-w-[85%]"><p>${text}</p></div>`;
+            chatMessagesEl.appendChild(div);
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

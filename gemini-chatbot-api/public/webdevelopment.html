@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Services - IGNite Digital Agency</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #2563EB, #4F46E5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Active Language Style */
+        .lang-active {
+            color: #2563EB; /* blue-600 */
+            font-weight: 700;
+        }
+        .lang-inactive {
+            color: #64748B; /* slate-500 */
+            font-weight: 500;
+        }
+        .lang-inactive:hover {
+            color: #2563EB;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white antialiased">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="text-2xl font-extrabold text-blue-600 tracking-tighter">IGNite</a>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html#marketing" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_marketing">Marketing</a>
+                <a href="index.html#design" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_design">Design</a>
+                <!-- Active State for Web Dev -->
+                <a href="#" class="text-xs font-bold text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_webdev">Web Development</a>
+                <a href="index.html#company" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_company">Company</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-6">
+                <!-- Language Toggle -->
+                <div class="flex items-center gap-2 text-xs font-bold">
+                    <button onclick="setLanguage('id')" id="btn-id-desktop" class="lang-active transition-colors">ID</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('en')" id="btn-en-desktop" class="lang-inactive transition-colors">EN</button>
+                </div>
+
+                <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5" data-key="btn_contact">
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Mobile Toggle Button -->
+            <div class="md:hidden flex items-center gap-4">
+                <div class="flex items-center gap-2 text-xs font-bold mr-2">
+                    <button onclick="setLanguage('id')" id="btn-id-mobile-head" class="lang-active transition-colors">ID</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('en')" id="btn-en-mobile-head" class="lang-inactive transition-colors">EN</button>
+                </div>
+                <button id="mobile-menu-btn" class="text-blue-600 focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-6 space-y-4 shadow-xl absolute w-full h-screen z-40">
+            <a href="index.html" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50">Home</a>
+            <a href="index.html#marketing" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_marketing">Marketing</a>
+            <a href="index.html#design" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_design">Design</a>
+            <a href="#" class="block text-lg font-bold text-blue-600 py-2 border-b border-gray-50" data-key="nav_webdev">Web Development</a>
+            <a href="index.html#contact" class="block w-full bg-blue-600 text-center text-white py-3 rounded-xl font-bold text-base mt-6 shadow-lg shadow-blue-600/30" data-key="btn_contact">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        
+        <!-- HERO SECTION -->
+        <section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold mb-6">
+                        <i data-lucide="code-2" class="w-3 h-3"></i>
+                        <span data-key="hero_badge">High Performance Websites</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                        <span data-key="hero_title_1">Website Cepat, Aman, &</span> <br/>
+                        <span class="text-gradient" data-key="hero_title_2">Teroptimasi.</span>
+                    </h1>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-lg" data-key="hero_desc">
+                        Kami membangun solusi digital yang tidak hanya terlihat bagus, tetapi juga berkinerja tinggi. Dari Company Profile hingga Web App kompleks.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#packages" class="inline-flex justify-center items-center px-8 py-3.5 text-sm font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30">
+                            <span data-key="btn_view_packages">Lihat Paket</span>
+                            <i data-lucide="arrow-down" class="ml-2 w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/62895704124948" class="inline-flex justify-center items-center px-8 py-3.5 text-sm font-bold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all" data-key="btn_free_consult">
+                            Konsultasi Gratis
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative">
+                    <div class="absolute -top-10 -right-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative bg-slate-900 rounded-2xl p-2 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-700">
+                        <!-- Mockup Header -->
+                        <div class="bg-slate-800 rounded-t-xl p-3 flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <!-- Mockup Content (Code Snippet Visual) -->
+                        <div class="bg-slate-900 rounded-b-xl p-6 overflow-hidden relative min-h-[300px] flex items-center justify-center">
+                             <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coding" class="opacity-60 absolute inset-0 w-full h-full object-cover">
+                             <div class="relative z-10 text-center">
+                                 <i data-lucide="cpu" class="w-16 h-16 text-blue-500 mx-auto mb-4"></i>
+                                 <div class="text-white font-mono text-sm">
+                                     <span class="text-purple-400">const</span> <span class="text-blue-400">igniteWeb</span> = <span class="text-yellow-300">{</span><br>
+                                     &nbsp;&nbsp;performance: <span class="text-green-400">'100%'</span>,<br>
+                                     &nbsp;&nbsp;security: <span class="text-green-400">'Maximum'</span>,<br>
+                                     &nbsp;&nbsp;seo: <span class="text-green-400">'Optimized'</span><br>
+                                     <span class="text-yellow-300">}</span>;
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK LOGOS -->
+        <section class="py-10 border-y border-slate-100 bg-slate-50">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6" data-key="tech_stack_title">Powered by Modern Technologies</p>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="file-code-2" class="text-orange-500"></i> HTML5</div>
+                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="palette" class="text-blue-500"></i> Tailwind</div>
+                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="atom" class="text-cyan-500"></i> React</div>
+                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="server" class="text-red-500"></i> Laravel</div>
+                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="database" class="text-blue-600"></i> WordPress</div>
+                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="box" class="text-green-600"></i> Node.js</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES GRID -->
+        <section class="py-20 container mx-auto px-4 md:px-6" id="packages">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4" data-key="services_title">Solusi Pengembangan Web</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto" data-key="services_desc">Kami menyediakan berbagai layanan pengembangan web yang disesuaikan dengan kebutuhan bisnis Anda, mulai dari landing page sederhana hingga sistem yang kompleks.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1: Company Profile -->
+                <div class="group bg-white rounded-2xl p-8 border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="building-2" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-key="card_1_title">Company Profile</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-key="card_1_desc">
+                        Website profesional untuk meningkatkan kredibilitas perusahaan Anda. Desain elegan, informasi jelas, dan mudah ditemukan di Google.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-700"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Responsive Design</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-700"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> SEO Basic</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-700"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> WhatsApp Integration</li>
+                    </ul>
+                    <a href="https://wa.me/62895704124948?text=Halo%20Ignite,%20saya%20tertarik%20pembuatan%20Company%20Profile" class="block w-full text-center py-3 rounded-lg border border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-600 hover:text-white transition-all" data-key="btn_card_1">Pilih Paket Ini</a>
+                </div>
+
+                <!-- Service 2: E-Commerce (Featured) -->
+                <div class="group bg-slate-900 rounded-2xl p-8 border border-slate-800 shadow-2xl relative overflow-hidden transform md:-translate-y-4">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-bl-xl">POPULAR</div>
+                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="shopping-cart" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-key="card_2_title">E-Commerce / Toko Online</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6" data-key="card_2_desc">
+                        Jual produk Anda secara online 24/7. Fitur lengkap mulai dari katalog produk, keranjang belanja, hingga integrasi pembayaran otomatis.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Payment Gateway</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Shipping Calculation</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Admin Dashboard</li>
+                    </ul>
+                    <a href="https://wa.me/62895704124948?text=Halo%20Ignite,%20saya%20tertarik%20pembuatan%20Toko%20Online" class="block w-full text-center py-3 rounded-lg bg-blue-600 text-white font-bold text-sm hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50" data-key="btn_consult_now">Konsultasi Sekarang</a>
+                </div>
+
+                <!-- Service 3: Custom Web App -->
+                <div class="group bg-white rounded-2xl p-8 border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i data-lucide="layers" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-key="card_3_title">Custom Web App</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-key="card_3_desc">
+                        Sistem berbasis web yang kompleks sesuai alur bisnis Anda. Seperti sistem inventaris, HRIS, portal berita, atau aplikasi SaaS.
+                    </p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-700"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> High Scalability</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-700"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Custom Database</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-700"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> API Integration</li>
+                    </ul>
+                    <a href="https://wa.me/62895704124948?text=Halo%20Ignite,%20saya%20tertarik%20pembuatan%20Custom%20Web%20App" class="block w-full text-center py-3 rounded-lg border border-purple-600 text-purple-600 font-bold text-sm hover:bg-purple-600 hover:text-white transition-all" data-key="btn_contact_us">Hubungi Kami</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY US & PROCESS -->
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Why Choose Us -->
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mb-6" data-key="why_us_title">Mengapa Memilih Layanan Web Kami?</h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                                    <i data-lucide="zap" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-slate-900" data-key="why_1_title">Kecepatan Optimal</h4>
+                                    <p class="text-slate-600 text-sm" data-key="why_1_desc">Website yang lambat membunuh konversi. Kami mengoptimalkan setiap baris kode dan aset untuk loading secepat kilat.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
+                                    <i data-lucide="search" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-slate-900" data-key="why_2_title">SEO Friendly</h4>
+                                    <p class="text-slate-600 text-sm" data-key="why_2_desc">Struktur website dibangun sesuai standar Google agar mudah ditemukan oleh calon pelanggan Anda.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shrink-0">
+                                    <i data-lucide="smartphone" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-slate-900" data-key="why_3_title">Mobile Responsive</h4>
+                                    <p class="text-slate-600 text-sm" data-key="why_3_desc">Tampilan yang menyesuaikan otomatis di semua perangkat (Desktop, Tablet, & HP) dengan sempurna.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Development Process -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6 border-b border-gray-100 pb-4" data-key="process_title">Alur Kerja Kami</h3>
+                        <div class="relative pl-6 border-l-2 border-blue-100 space-y-8">
+                            <!-- Step 1 -->
+                            <div class="relative">
+                                <div class="absolute -left-[31px] top-0 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+                                <h4 class="font-bold text-slate-900" data-key="step_1_title">1. Discovery & Konsultasi</h4>
+                                <p class="text-xs text-slate-500 mt-1" data-key="step_1_desc">Kami berdiskusi untuk memahami tujuan bisnis, target audiens, dan fitur yang Anda butuhkan.</p>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="relative">
+                                <div class="absolute -left-[31px] top-0 w-6 h-6 bg-blue-400 rounded-full border-4 border-white shadow-sm"></div>
+                                <h4 class="font-bold text-slate-900" data-key="step_2_title">2. UI/UX Design</h4>
+                                <p class="text-xs text-slate-500 mt-1" data-key="step_2_desc">Merancang tampilan visual (mockup) agar Anda bisa melihat gambaran website sebelum dikoding.</p>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="relative">
+                                <div class="absolute -left-[31px] top-0 w-6 h-6 bg-blue-300 rounded-full border-4 border-white shadow-sm"></div>
+                                <h4 class="font-bold text-slate-900" data-key="step_3_title">3. Development</h4>
+                                <p class="text-xs text-slate-500 mt-1" data-key="step_3_desc">Proses penulisan kode (coding) mengubah desain menjadi website yang berfungsi penuh.</p>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="relative">
+                                <div class="absolute -left-[31px] top-0 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-sm"></div>
+                                <h4 class="font-bold text-slate-900" data-key="step_4_title">4. Testing & Launch</h4>
+                                <p class="text-xs text-slate-500 mt-1" data-key="step_4_desc">Uji coba performa, keamanan, dan responsivitas sebelum website online dan dapat diakses publik.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="py-20 container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-10" data-key="faq_title">Pertanyaan Umum (FAQ)</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <div class="border border-slate-200 rounded-xl p-4 hover:border-blue-300 transition-colors cursor-pointer faq-item">
+                    <div class="flex justify-between items-center font-bold text-slate-800">
+                        <span data-key="faq_q1">Berapa lama waktu pembuatan website?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <div class="hidden mt-3 text-slate-600 text-sm leading-relaxed faq-content" data-key="faq_a1">
+                        Untuk Company Profile standar biasanya memakan waktu 1-2 minggu. Untuk Toko Online atau Custom Web App bisa memakan waktu 3-8 minggu tergantung kompleksitas fitur.
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl p-4 hover:border-blue-300 transition-colors cursor-pointer faq-item">
+                    <div class="flex justify-between items-center font-bold text-slate-800">
+                        <span data-key="faq_q2">Apa saja yang perlu saya siapkan untuk memulai proyek?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <div class="hidden mt-3 text-slate-600 text-sm leading-relaxed faq-content" data-key="faq_a2">
+                         Anda cukup menyiapkan data dasar seperti Logo, Profil Perusahaan, dan materi konten (teks/foto). Jika belum lengkap, tim kami siap membantu Anda menyusunnya dari awal.
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl p-4 hover:border-blue-300 transition-colors cursor-pointer faq-item">
+                    <div class="flex justify-between items-center font-bold text-slate-800">
+                        <span data-key="faq_q3">Apakah sudah termasuk domain dan hosting?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <div class="hidden mt-3 text-slate-600 text-sm leading-relaxed faq-content" data-key="faq_a3">
+                        Beberapa paket kami sudah termasuk domain (.com/.id) dan hosting gratis untuk tahun pertama. Untuk tahun berikutnya, Anda hanya perlu membayar biaya perpanjangan standar.
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl p-4 hover:border-blue-300 transition-colors cursor-pointer faq-item">
+                    <div class="flex justify-between items-center font-bold text-slate-800">
+                        <span data-key="faq_q4">Apakah ada layanan maintenance setelah website jadi?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    <div class="hidden mt-3 text-slate-600 text-sm leading-relaxed faq-content" data-key="faq_a4">
+                        Kami memberikan garansi perbaikan bug gratis selama 1-3 bulan setelah peluncuran. Setelah itu, kami menawarkan paket maintenance bulanan opsional untuk memastikan keamanan dan performa website tetap terjaga.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-20 bg-blue-600 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6" data-key="cta_title">Siap Mengembangkan Bisnis Anda?</h2>
+                <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto" data-key="cta_desc">Jangan biarkan ide hebat Anda hanya menjadi angan-angan. Konsultasikan kebutuhan website Anda dengan tim ahli kami sekarang.</p>
+                <a href="https://wa.me/62895704124948" class="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl shadow-blue-900/20 transform hover:-translate-y-1" data-key="btn_cta_whatsapp">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    Hubungi via WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111827] text-white pt-16 pb-8 mt-auto">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-1">
+                    <div class="text-2xl font-bold text-blue-600 mb-4 tracking-tighter">IGNite</div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-key="footer_desc">
+                        Smart design. Scalable systems. Real results.
+                    </p>
+                    <button class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-colors" data-key="btn_contact">
+                         Contact US
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 md:col-span-3 md:flex md:justify-between">
+                    <div>
+                        <h4 class="font-bold mb-4 text-base" data-key="footer_services">Services</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="index.html#design" class="hover:text-white transition-colors" data-key="nav_design">Design</a></li>
+                            <li><a href="index.html#marketing" class="hover:text-white transition-colors" data-key="nav_marketing">Marketing</a></li>
+                            <li><a href="web-development.html" class="text-white font-bold transition-colors" data-key="nav_webdev">Web Development</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4 text-base" data-key="footer_resources">Resources</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="index.html#article" class="hover:text-white transition-colors" data-key="nav_article">Article</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-1">
+                        <h4 class="font-bold mb-4 text-base" data-key="footer_contact">Contact Us</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li>igniteinfo@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                 <div class="flex gap-6 font-semibold">
+                    <a href="privacy.html" class="hover:text-white transition-colors" data-key="privacy">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors" data-key="term">Term & Condition</a>
+                    <a href="disclaimer.html" class="hover:text-white transition-colors" data-key="disclaimer">Disclaimer</a>
+                 </div>
+                 <div class="flex gap-6">
+                    <i data-lucide="youtube" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="instagram" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="twitter" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="linkedin" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Whatsapp Float -->
+    <a href="https://wa.me/62895704124948" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-[0_10px_40px_-10px_rgba(37,211,102,0.5)] flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-50">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Basic Scripts (Menu & Icons & FAQ & Translation) -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        if(menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if(isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+                    document.body.style.overflow = 'auto';
+                }
+                lucide.createIcons();
+            });
+        }
+
+        // FAQ Toggle Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const content = item.querySelector('.faq-content');
+                const icon = item.querySelector('i');
+                const isHidden = content.classList.contains('hidden');
+
+                // Close all others
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                document.querySelectorAll('.faq-item i').forEach(i => i.classList.remove('rotate-180'));
+
+                if(isHidden) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                    item.classList.add('border-blue-300', 'bg-blue-50/50');
+                } else {
+                    item.classList.remove('border-blue-300', 'bg-blue-50/50');
+                }
+            });
+        });
+
+        // --- TRANSLATION LOGIC ---
+        var translations = {
+            id: {
+                nav_marketing: "Pemasaran",
+                nav_design: "Desain",
+                nav_webdev: "Pengembangan Web",
+                nav_company: "Perusahaan",
+                nav_article: "Artikel",
+                btn_contact: "Hubungi Kami",
+                hero_badge: "Website Performa Tinggi",
+                hero_title_1: "Website Cepat, Aman, &",
+                hero_title_2: "Teroptimasi.",
+                hero_desc: "Kami membangun solusi digital yang tidak hanya terlihat bagus, tetapi juga berkinerja tinggi. Dari Company Profile hingga Web App kompleks.",
+                btn_view_packages: "Lihat Paket",
+                btn_free_consult: "Konsultasi Gratis",
+                tech_stack_title: "Ditenagai Teknologi Modern",
+                services_title: "Solusi Pengembangan Web",
+                services_desc: "Kami menyediakan berbagai layanan pengembangan web yang disesuaikan dengan kebutuhan bisnis Anda, mulai dari landing page sederhana hingga sistem yang kompleks.",
+                card_1_title: "Company Profile",
+                card_1_desc: "Website profesional untuk meningkatkan kredibilitas perusahaan Anda. Desain elegan, informasi jelas, dan mudah ditemukan di Google.",
+                btn_card_1: "Pilih Paket Ini",
+                card_2_title: "E-Commerce / Toko Online",
+                card_2_desc: "Jual produk Anda secara online 24/7. Fitur lengkap mulai dari katalog produk, keranjang belanja, hingga integrasi pembayaran otomatis.",
+                btn_consult_now: "Konsultasi Sekarang",
+                card_3_title: "Custom Web App",
+                card_3_desc: "Sistem berbasis web yang kompleks sesuai alur bisnis Anda. Seperti sistem inventaris, HRIS, portal berita, atau aplikasi SaaS.",
+                btn_contact_us: "Hubungi Kami",
+                why_us_title: "Mengapa Memilih Layanan Web Kami?",
+                why_1_title: "Kecepatan Optimal",
+                why_1_desc: "Website yang lambat membunuh konversi. Kami mengoptimalkan setiap baris kode dan aset untuk loading secepat kilat.",
+                why_2_title: "SEO Friendly",
+                why_2_desc: "Struktur website dibangun sesuai standar Google agar mudah ditemukan oleh calon pelanggan Anda.",
+                why_3_title: "Mobile Responsive",
+                why_3_desc: "Tampilan yang menyesuaikan otomatis di semua perangkat (Desktop, Tablet, & HP) dengan sempurna.",
+                process_title: "Alur Kerja Kami",
+                step_1_title: "1. Discovery & Konsultasi",
+                step_1_desc: "Kami berdiskusi untuk memahami tujuan bisnis, target audiens, dan fitur yang Anda butuhkan.",
+                step_2_title: "2. UI/UX Design",
+                step_2_desc: "Merancang tampilan visual (mockup) agar Anda bisa melihat gambaran website sebelum dikoding.",
+                step_3_title: "3. Development",
+                step_3_desc: "Proses penulisan kode (coding) mengubah desain menjadi website yang berfungsi penuh.",
+                step_4_title: "4. Testing & Launch",
+                step_4_desc: "Uji coba performa, keamanan, dan responsivitas sebelum website online dan dapat diakses publik.",
+                faq_title: "Pertanyaan Umum (FAQ)",
+                faq_q1: "Berapa lama waktu pembuatan website?",
+                faq_a1: "Untuk Company Profile standar biasanya memakan waktu 1-2 minggu. Untuk Toko Online atau Custom Web App bisa memakan waktu 3-8 minggu tergantung kompleksitas fitur.",
+                faq_q2: "Apa saja yang perlu saya siapkan untuk memulai proyek?",
+                faq_a2: "Anda cukup menyiapkan data dasar seperti Logo, Profil Perusahaan, dan materi konten (teks/foto). Jika belum lengkap, tim kami siap membantu Anda menyusunnya dari awal.",
+                faq_q3: "Apakah sudah termasuk domain dan hosting?",
+                faq_a3: "Beberapa paket kami sudah termasuk domain (.com/.id) dan hosting gratis untuk tahun pertama. Untuk tahun berikutnya, Anda hanya perlu membayar biaya perpanjangan standar.",
+                faq_q4: "Apakah ada layanan maintenance setelah website jadi?",
+                faq_a4: "Kami memberikan garansi perbaikan bug gratis selama 1-3 bulan setelah peluncuran. Setelah itu, kami menawarkan paket maintenance bulanan opsional untuk memastikan keamanan dan performa website tetap terjaga.",
+                cta_title: "Siap Mengembangkan Bisnis Anda?",
+                cta_desc: "Jangan biarkan ide hebat Anda hanya menjadi angan-angan. Konsultasikan kebutuhan website Anda dengan tim ahli kami sekarang.",
+                btn_cta_whatsapp: "Hubungi via WhatsApp",
+                footer_desc: "Desain cerdas. Sistem terukur. Hasil nyata.",
+                footer_services: "Layanan",
+                footer_resources: "Sumber Daya",
+                footer_contact: "Hubungi Kami",
+                privacy: "Kebijakan Privasi",
+                term: "Syarat & Ketentuan",
+                disclaimer: "Penyangkalan"
+            },
+            en: {
+                nav_marketing: "Marketing",
+                nav_design: "Design",
+                nav_webdev: "Web Development",
+                nav_company: "Company",
+                nav_article: "Article",
+                btn_contact: "Contact Us",
+                hero_badge: "High Performance Websites",
+                hero_title_1: "Fast, Secure, &",
+                hero_title_2: "Optimized Websites.",
+                hero_desc: "We build digital solutions that not only look good but perform at a high level. From Company Profiles to complex Web Apps.",
+                btn_view_packages: "View Packages",
+                btn_free_consult: "Free Consultation",
+                tech_stack_title: "Powered by Modern Technologies",
+                services_title: "Web Development Solutions",
+                services_desc: "We provide various web development services tailored to your business needs, from simple landing pages to complex systems.",
+                card_1_title: "Company Profile",
+                card_1_desc: "Professional website to increase your company's credibility. Elegant design, clear information, and easy to find on Google.",
+                btn_card_1: "Select This Package",
+                card_2_title: "E-Commerce / Online Store",
+                card_2_desc: "Sell your products online 24/7. Complete features from product catalogs, shopping carts, to automated payment integration.",
+                btn_consult_now: "Consult Now",
+                card_3_title: "Custom Web App",
+                card_3_desc: "Complex web-based systems tailored to your business flow. Such as inventory systems, HRIS, news portals, or SaaS applications.",
+                btn_contact_us: "Contact Us",
+                why_us_title: "Why Choose Our Web Services?",
+                why_1_title: "Optimal Speed",
+                why_1_desc: "Slow websites kill conversions. We optimize every line of code and asset for lightning-fast loading.",
+                why_2_title: "SEO Friendly",
+                why_2_desc: "Website structure built to Google standards to be easily found by your potential customers.",
+                why_3_title: "Mobile Responsive",
+                why_3_desc: "Layouts that automatically adapt perfectly to all devices (Desktop, Tablet, & Mobile).",
+                process_title: "Our Workflow",
+                step_1_title: "1. Discovery & Consultation",
+                step_1_desc: "We discuss to understand your business goals, target audience, and required features.",
+                step_2_title: "2. UI/UX Design",
+                step_2_desc: "Designing visual layouts (mockups) so you can see the website concept before coding.",
+                step_3_title: "3. Development",
+                step_3_desc: "The coding process turns the design into a fully functional website.",
+                step_4_title: "4. Testing & Launch",
+                step_4_desc: "Testing performance, security, and responsiveness before the website goes online and is accessible to the public.",
+                faq_title: "Frequently Asked Questions (FAQ)",
+                faq_q1: "How long does it take to build a website?",
+                faq_a1: "For a standard Company Profile, it usually takes 1-2 weeks. For Online Stores or Custom Web Apps, it can take 3-8 weeks depending on feature complexity.",
+                faq_q2: "What do I need to prepare to start the project?",
+                faq_a2: "You simply need to prepare basic data like Logo, Company Profile, and content materials (text/photos). If you don't have them yet, our team is ready to help you structure it from scratch.",
+                faq_q3: "Are domain and hosting included?",
+                faq_a3: "Some of our packages include a domain (.com/.id) and free hosting for the first year. For the following years, you only need to pay standard renewal fees.",
+                faq_q4: "Is there maintenance service after the website is done?",
+                faq_a4: "We provide a free bug fix warranty for 1-3 months after launch. After that, we offer optional monthly maintenance packages to ensure website security and performance.",
+                cta_title: "Ready to Grow Your Business?",
+                cta_desc: "Don't let your great ideas remain just dreams. Consult your website needs with our expert team now.",
+                btn_cta_whatsapp: "Contact via WhatsApp",
+                footer_desc: "Smart design. Scalable systems. Real results.",
+                footer_services: "Services",
+                footer_resources: "Resources",
+                footer_contact: "Contact Us",
+                privacy: "Privacy Policy",
+                term: "Terms & Conditions",
+                disclaimer: "Disclaimer"
+            }
+        };
+
+        var currentLang = 'id';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            var elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                var key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            updateBtnStyles('desktop');
+            updateBtnStyles('mobile-head');
+        }
+
+        function updateBtnStyles(type) {
+            var btnId = document.getElementById(`btn-id-${type}`);
+            var btnEn = document.getElementById(`btn-en-${type}`);
+            if (currentLang === 'id') {
+                btnId.className = 'lang-active transition-colors';
+                btnEn.className = 'lang-inactive transition-colors';
+            } else {
+                btnId.className = 'lang-inactive transition-colors';
+                btnEn.className = 'lang-active transition-colors';
+            }
+        }
+    </script>
+</body>
+</html>
