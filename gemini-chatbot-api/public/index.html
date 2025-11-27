@@ -55,60 +55,60 @@
     <!-- NAVBAR -->
     <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-blue-600 tracking-tighter">IGNite</a>
+            <!-- Reduced Logo Size -->
+            <a href="#" class="text-2xl font-extrabold text-blue-600 tracking-tighter">IGNite</a>
             
             <!-- Desktop Menu -->
             <nav class="hidden lg:flex space-x-6 items-center">
-                <a href="#marketing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_marketing">Marketing</a>
-                <a href="#design" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_design">Design</a>
-                <!-- New Menu Items -->
-                <a href="#webdev" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_webdev">Web Development</a>
-                <a href="#ai" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_ai">AI Automation</a>
+                <!-- Reduced Nav Text Size -->
+                <a href="#marketing" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_marketing">Marketing</a>
+                <a href="#design" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_design">Design</a>
+                <a href="#webdev" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_webdev">Web Development</a>
+                <a href="#ai" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_ai">AI Automation</a>
                 
-                <a href="#company" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_company">Company</a>
-                <a href="#portfolio" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_portfolio">Portfolio</a>
-                <a href="#article" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" data-key="nav_article">Article</a>
+                <a href="#company" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_company">Company</a>
+                <a href="#portfolio" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_portfolio">Portfolio</a>
+                <a href="#article" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-wide" data-key="nav_article">Article</a>
             </nav>
 
             <div class="hidden md:flex items-center gap-6">
                 <!-- Language Toggle (Desktop) -->
-                <div class="flex items-center gap-2 text-sm">
+                <div class="flex items-center gap-2 text-xs font-bold">
                     <button onclick="setLanguage('id')" id="btn-id-desktop" class="lang-active transition-colors">ID</button>
                     <span class="text-slate-300">|</span>
                     <button onclick="setLanguage('en')" id="btn-en-desktop" class="lang-inactive transition-colors">EN</button>
                 </div>
 
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5" data-key="btn_contact">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5" data-key="btn_contact">
                     Contact Us
                 </button>
             </div>
 
             <!-- Mobile Toggle Button -->
             <div class="md:hidden flex items-center gap-4">
-                <div class="flex items-center gap-2 text-sm mr-2">
+                <div class="flex items-center gap-2 text-xs mr-2 font-bold">
                     <button onclick="setLanguage('id')" id="btn-id-mobile-head" class="lang-active transition-colors">ID</button>
                     <span class="text-slate-300">|</span>
                     <button onclick="setLanguage('en')" id="btn-en-mobile-head" class="lang-inactive transition-colors">EN</button>
                 </div>
 
                 <button id="mobile-menu-btn" class="text-blue-600 focus:outline-none">
-                    <i data-lucide="menu" id="menu-icon" class="w-8 h-8"></i>
+                    <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-6 space-y-4 shadow-xl absolute w-full h-screen z-40">
-            <a href="#marketing" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_marketing">Marketing</a>
-            <a href="#design" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_design">Design</a>
-            <!-- New Mobile Menu Items -->
-            <a href="#webdev" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_webdev">Web Development</a>
-            <a href="#ai" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_ai">AI Automation</a>
+            <a href="#marketing" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_marketing">Marketing</a>
+            <a href="#design" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_design">Design</a>
+            <a href="#webdev" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_webdev">Web Development</a>
+            <a href="#ai" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_ai">AI Automation</a>
             
-            <a href="#company" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_company">Company</a>
-            <a href="#portfolio" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_portfolio">Portfolio</a>
-            <a href="#article" class="block text-xl font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_article">Article</a>
-            <button class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg mt-6 shadow-lg shadow-blue-600/30 active:scale-95 transition-transform" data-key="btn_contact">Contact Us</button>
+            <a href="#company" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_company">Company</a>
+            <a href="#portfolio" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_portfolio">Portfolio</a>
+            <a href="#article" class="block text-lg font-bold text-slate-800 hover:text-blue-600 py-2 border-b border-gray-50" data-key="nav_article">Article</a>
+            <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-base mt-6 shadow-lg shadow-blue-600/30 active:scale-95 transition-transform" data-key="btn_contact">Contact Us</button>
         </div>
     </header>
 
@@ -118,23 +118,25 @@
         <section class="w-full bg-cover bg-center relative" style="background-image: url('https://i.imghippo.com/files/xbE8508Tw.png');">
             <!-- Container Wrapper untuk konten agar tetap di tengah -->
             <div class="container mx-auto px-4 md:px-6 py-12 md:py-24 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                <!-- Reduced Title Size -->
+                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
                     <span class="text-blue-600 block md:inline" data-key="hero_title_1">Full-Service</span> 
                     <span class="block md:inline" data-key="hero_title_2">Digital Agency</span>
                 </h1>
-                <p class="hidden md:block text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-16" data-key="hero_desc">
+                <!-- Reduced Description Size -->
+                <p class="hidden md:block text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-12" data-key="hero_desc">
                     Kami membantu merek Anda dilihat oleh orang yang tepat melalui strategi digital yang terukur dan desain yang memukau.
                 </p>
 
                 <!-- Hero Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mt-8 md:mt-0 items-start">
                     
-                    <!-- Card 1: Design -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-gradient-to-b from-white/90 via-white/60 to-white/30 backdrop-blur-xl p-8 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-blue-900/20 flex flex-col items-center">
+                    <!-- Card 1: Design (Updated radius to 16px / rounded-2xl) -->
+                    <div class="group relative overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-b from-white/90 via-white/60 to-white/30 backdrop-blur-xl p-6 md:p-8 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-blue-900/20 flex flex-col items-center">
                         <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-20"></div>
-                        <!-- Updated Title Here -->
-                        <h3 class="text-2xl font-extrabold text-slate-900 mb-6 relative z-10" data-key="service_design_title">Product & UI/UX Design</h3>
-                        <div class="flex gap-4 w-full mb-8 z-10 items-start">
+                        <!-- Updated Title Size -->
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-4 relative z-10" data-key="service_design_title">Product & UI/UX Design</h3>
+                        <div class="flex gap-4 w-full mb-6 z-10 items-start">
                              <div class="flex-[2] aspect-square rounded-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
                                  <img src="https://i.imghippo.com/files/TRm6105NM.png" alt="Design Large" class="w-full h-full object-cover">
                              </div>
@@ -142,19 +144,21 @@
                                  <img src="https://i.imghippo.com/files/CVDR3215qlc.png" alt="Design Small" class="w-full h-full object-cover opacity-90">
                              </div>
                         </div>
-                        <p class="text-slate-800 mb-8 text-sm leading-relaxed text-left w-full font-medium relative z-10" data-key="service_design_desc">
+                        <!-- Reduced Text Size -->
+                        <p class="text-slate-800 mb-6 text-xs md:text-sm leading-relaxed text-left w-full font-medium relative z-10" data-key="service_design_desc">
                             Kami membuat antarmuka digital yang terasa mudah dan terlihat luar biasa. Dari identitas merek hingga desain UI/UX responsif.
                         </p>
-                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-base transition-all shadow-lg shadow-blue-600/30 mt-auto active:scale-95 relative z-10" data-key="btn_contact">
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-600/30 mt-auto active:scale-95 relative z-10" data-key="btn_contact">
                             Contact US
                         </button>
                     </div>
 
-                    <!-- Card 2: Marketing -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-gradient-to-b from-white/90 via-white/60 to-white/30 backdrop-blur-xl p-8 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-blue-900/20 flex flex-col items-center md:mt-16">
+                    <!-- Card 2: Marketing (Updated radius to 16px / rounded-2xl) -->
+                    <div class="group relative overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-b from-white/90 via-white/60 to-white/30 backdrop-blur-xl p-6 md:p-8 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-blue-900/20 flex flex-col items-center md:mt-16">
                         <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        <h3 class="text-2xl font-extrabold text-slate-900 mb-6" data-key="service_marketing_title">Marketing</h3>
-                        <div class="flex gap-4 w-full mb-8 z-10 items-end">
+                        <!-- Reduced Title Size -->
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-4" data-key="service_marketing_title">Marketing</h3>
+                        <div class="flex gap-4 w-full mb-6 z-10 items-end">
                              <div class="flex-[2] aspect-square rounded-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
                                  <img src="https://i.imghippo.com/files/JHK3440Caw.png" alt="Marketing Large" class="w-full h-full object-cover">
                              </div>
@@ -162,19 +166,21 @@
                                  <img src="https://i.imghippo.com/files/YOJ1701aw.png" alt="Marketing Small" class="w-full h-full object-cover opacity-90">
                              </div>
                         </div>
-                        <p class="text-slate-800 mb-8 text-sm leading-relaxed text-left w-full font-medium" data-key="service_marketing_desc">
+                        <!-- Reduced Text Size -->
+                        <p class="text-slate-800 mb-6 text-xs md:text-sm leading-relaxed text-left w-full font-medium" data-key="service_marketing_desc">
                             Kami membantu merek Anda dilihat oleh orang yang tepat. Melalui SEO, konten yang mengukur pertumbuhan, dan strategi online.
                         </p>
-                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-base transition-all shadow-lg shadow-blue-600/30 mt-auto active:scale-95" data-key="btn_contact">
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-600/30 mt-auto active:scale-95" data-key="btn_contact">
                             Contact US
                         </button>
                     </div>
 
-                    <!-- Card 3: Development -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-gradient-to-b from-white/90 via-white/60 to-white/30 backdrop-blur-xl p-8 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-blue-900/20 flex flex-col items-center md:mt-8">
+                    <!-- Card 3: Development (Updated radius to 16px / rounded-2xl) -->
+                    <div class="group relative overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-b from-white/90 via-white/60 to-white/30 backdrop-blur-xl p-6 md:p-8 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-blue-900/20 flex flex-col items-center md:mt-8">
                         <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        <h3 class="text-2xl font-extrabold text-slate-900 mb-6" data-key="service_web_title">Web Development</h3>
-                        <div class="flex gap-4 w-full mb-8 z-10 items-end">
+                        <!-- Reduced Title Size -->
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-4" data-key="service_web_title">Web Development</h3>
+                        <div class="flex gap-4 w-full mb-6 z-10 items-end">
                              <div class="flex-1 aspect-square rounded-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500 delay-75">
                                  <img src="https://i.imghippo.com/files/oNW8647qEU.png" alt="Web Dev Small" class="w-full h-full object-cover opacity-90">
                              </div>
@@ -182,10 +188,11 @@
                                  <img src="https://i.imghippo.com/files/Tnq3236Bg.png" alt="Web Dev Large" class="w-full h-full object-cover">
                              </div>
                         </div>
-                        <p class="text-slate-800 mb-8 text-sm leading-relaxed text-left w-full font-medium" data-key="service_web_desc">
+                        <!-- Reduced Text Size -->
+                        <p class="text-slate-800 mb-6 text-xs md:text-sm leading-relaxed text-left w-full font-medium" data-key="service_web_desc">
                             Kami mengubah ide menjadi situs web yang cepat, skalabel, dan aman. Baik itu kode kustom atau platform yang ramah pengguna.
                         </p>
-                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-base transition-all shadow-lg shadow-blue-600/30 mt-auto active:scale-95" data-key="btn_contact">
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-600/30 mt-auto active:scale-95" data-key="btn_contact">
                             Contact US
                         </button>
                     </div>
@@ -197,8 +204,9 @@
         <!-- ONE PLACE SECTION -->
         <section class="bg-slate-50 py-16 md:py-20" id="company">
             <div class="container mx-auto px-4 md:px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+                <div class="text-center mb-10">
+                    <!-- Reduced Title Size -->
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight">
                         <span class="text-blue-600" data-key="oneplace_title_1">Design+Develop+<br class="md:hidden">Marketing</span>
                         <br /><span data-key="oneplace_title_2">In One Place</span>
                     </h2>
@@ -209,7 +217,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                         
                         <!-- 1. Top Left (Large Landscape) - REPLACED WITH VIDEO -->
-                        <div class="md:col-span-2 h-[250px] md:h-[350px] rounded-3xl overflow-hidden relative group shadow-lg">
+                        <!-- Updated radius to 16px (rounded-2xl) -->
+                        <div class="md:col-span-2 h-[250px] md:h-[350px] rounded-2xl overflow-hidden relative group shadow-lg">
                              <video 
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 scroll-video" 
                                 muted 
@@ -222,7 +231,8 @@
                         </div>
 
                         <!-- 2. Right (Tall Portrait) - VIDEO SECTION -->
-                        <div class="md:col-span-1 md:row-span-2 h-[400px] md:h-auto rounded-3xl overflow-hidden relative group shadow-lg bg-black order-last md:order-none">
+                        <!-- Updated radius to 16px (rounded-2xl) -->
+                        <div class="md:col-span-1 md:row-span-2 h-[400px] md:h-auto rounded-2xl overflow-hidden relative group shadow-lg bg-black order-last md:order-none">
                              <video 
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 scroll-video" 
                                 muted 
@@ -236,25 +246,32 @@
                              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 pointer-events-none z-0"></div>
                         </div>
 
-                        <!-- 3. Bottom Left 1 - VIDEO SECTION -->
-                        <div class="md:col-span-1 h-[200px] md:h-[250px] rounded-3xl overflow-hidden relative group shadow-lg">
+                        <!-- 3. Bottom Left 1 - REPLACED WITH NEW VIDEO -->
+                        <!-- Updated radius to 16px (rounded-2xl) -->
+                        <div class="md:col-span-1 h-[200px] md:h-[250px] rounded-2xl overflow-hidden relative group shadow-lg">
                              <video 
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 scroll-video" 
                                 muted 
                                 loop 
                                 playsinline>
-                                <source src="https://video.wixstatic.com/video/37dc1a_42ffa043936a4c73b4628ddbb8b1a86d/720p/mp4/file.mp4" type="video/mp4">
+                                <source src="https://res.cloudinary.com/dhgzxt2b5/video/upload/v1764144722/Untitled_design_6_si0tew.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                              </video>
                              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none"></div>
                         </div>
 
-                        <!-- 4. Bottom Left 2 -->
-                        <div class="md:col-span-1 h-[200px] md:h-[250px] rounded-3xl overflow-hidden relative group shadow-lg">
-                             <img src="https://images.unsplash.com/photo-1553877606-3c66953ee913?auto=format&fit=crop&q=80&w=800" 
-                                  alt="Coding" 
-                                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                        <!-- 4. Bottom Left 2 - VIDEO SECTION -->
+                        <!-- Updated radius to 16px (rounded-2xl) -->
+                        <div class="md:col-span-1 h-[200px] md:h-[250px] rounded-2xl overflow-hidden relative group shadow-lg">
+                             <video 
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 scroll-video" 
+                                muted 
+                                loop 
+                                playsinline>
+                                <source src="https://res.cloudinary.com/dhgzxt2b5/video/upload/v1764143462/Untitled_design_5_1_wjhzfb.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                             </video>
+                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none"></div>
                         </div>
                     </div>
                 </div>
@@ -263,104 +280,107 @@
 
         <!-- PERFORMANCE STATS -->
         <section class="py-16 md:py-24 container mx-auto px-4 md:px-6">
-            <div class="text-center mb-16">
-               <h2 class="text-3xl md:text-5xl font-bold text-slate-900" data-key="performance_title">Our Performance</h2>
+            <div class="text-center mb-12">
+                <!-- Reduced Title Size -->
+               <h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-key="performance_title">Our Performance</h2>
             </div>
 
             <!-- >>> TAMPILAN MOBILE (Hidden on Desktop) <<< -->
             <div class="md:hidden grid grid-cols-2 gap-4 max-w-6xl mx-auto">
-                <!-- Mobile: Blue 300 Card (Swapped: Now 4.9 Satisfaction on Top/First) -->
-                <div class="bg-blue-300 text-white rounded-3xl p-6 flex flex-col justify-center col-span-1 min-h-[160px] relative overflow-hidden">
-                   <i data-lucide="star" class="w-12 h-12 absolute top-[-10px] right-[-10px] opacity-20 rotate-12"></i>
-                   <!-- FIX: Added Animation Attributes -->
-                   <div class="text-4xl font-bold mb-1 count-up" data-value="4.9" data-decimals="1">0</div>
-                   <div class="text-xs font-medium" data-key="stat_satisfaction">Satisfaction Client</div>
+                <!-- 1. Satisfaction Client (4.9) - Top Left -->
+                <div class="bg-blue-300 text-white rounded-2xl p-5 flex flex-col justify-center col-span-1 min-h-[140px] relative overflow-hidden order-1">
+                   <i data-lucide="star" class="w-10 h-10 absolute top-[-5px] right-[-5px] opacity-20 rotate-12"></i>
+                   <!-- Reduced Number Size -->
+                   <div class="text-3xl font-bold mb-1 count-up" data-value="4.9" data-decimals="1">0</div>
+                   <div class="text-[10px] font-medium" data-key="stat_satisfaction">Satisfaction Client</div>
                 </div>
                 
-                <!-- Mobile: Blue 600 Card (Swapped: Now +3 SME on Bottom/Second) -->
-                <div class="bg-blue-600 text-white rounded-3xl p-6 flex flex-col justify-center col-span-1 min-h-[160px] order-3 relative overflow-hidden">
-                    <i data-lucide="building-2" class="w-12 h-12 absolute top-[-10px] right-[-10px] opacity-20 rotate-12"></i>
-                    <!-- FIX: Added Animation Attributes -->
-                    <div class="text-4xl font-bold mb-1 count-up" data-value="3" data-prefix="+">0</div>
-                    <div class="text-xs opacity-90 leading-tight font-medium" data-key="stat_enterprises">Small and Medium<br>Enterprises</div>
+                <!-- 2. SME (+3) - Top Right -->
+                <div class="bg-blue-600 text-white rounded-2xl p-5 flex flex-col justify-center col-span-1 min-h-[140px] order-2 relative overflow-hidden">
+                    <i data-lucide="building-2" class="w-10 h-10 absolute top-[-5px] right-[-5px] opacity-20 rotate-12"></i>
+                    <div class="text-3xl font-bold mb-1 count-up" data-value="3" data-prefix="+">0</div>
+                    <div class="text-[10px] opacity-90 leading-tight font-medium" data-key="stat_enterprises">Small and Medium<br>Enterprises</div>
                 </div>
 
-                <div class="rounded-3xl overflow-hidden relative col-span-2 min-h-[180px] order-2">
-                   <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Team Meeting" class="w-full h-full object-cover" />
+                <!-- 3. Growth (+180%) - Middle Left -->
+                <div class="bg-purple-600 text-white rounded-2xl p-5 flex flex-col justify-center col-span-1 min-h-[140px] order-3 relative overflow-hidden">
+                    <i data-lucide="trending-up" class="w-12 h-12 absolute top-[-10px] right-[-10px] opacity-20"></i>
+                    <div class="text-2xl font-bold mb-1 count-up" data-value="180" data-prefix="+" data-suffix="%">0</div>
+                    <div class="text-[10px] opacity-90" data-key="stat_growth">Average client traffic<br>growth in just 3 months</div>
                 </div>
-                <!-- Mobile Purple Card (+180%) -->
-                <div class="bg-purple-600 text-white rounded-3xl p-6 flex flex-col justify-center col-span-2 min-h-[140px] order-4 relative overflow-hidden">
-                    <i data-lucide="trending-up" class="w-16 h-16 absolute top-[-15px] right-[-15px] opacity-20"></i>
-                    <!-- Added Animation Attributes -->
-                    <div class="text-3xl font-bold mb-1 count-up" data-value="180" data-prefix="+" data-suffix="%">0</div>
-                    <div class="text-xs opacity-90" data-key="stat_growth">Average client traffic<br>growth in just 3 months</div>
+
+                <!-- 4. Profit (+30%) - Middle Right -->
+                <div class="bg-indigo-400 text-white rounded-2xl p-5 flex flex-col justify-center col-span-1 min-h-[140px] order-4 relative overflow-hidden">
+                   <i data-lucide="coins" class="w-10 h-10 absolute top-[-10px] right-[-10px] opacity-20 rotate-12"></i>
+                   <div class="text-2xl font-bold mb-1 count-up" data-value="30" data-prefix="+" data-suffix="%">0</div>
+                   <div class="text-[10px] opacity-90" data-key="stat_profit">Average client profit<br>growth in just 3 months</div>
                 </div>
-                 <!-- Mobile Dark Card (Text Removed) -->
-                 <div class="bg-slate-900 rounded-3xl p-6 col-span-1 flex items-center justify-center relative overflow-hidden order-5 aspect-square">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=400" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Dark Mode" />
+
+                <!-- 5. Team Image (Handshake) - Bottom Left -->
+                <div class="rounded-2xl overflow-hidden relative col-span-1 min-h-[140px] order-5">
+                   <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764081645/Gemini_Generated_Image_aldz1faldz1faldz_qixpcs.jpg" alt="Team Meeting" class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+
+                <!-- 6. Shopping Image - Bottom Right -->
+                 <div class="bg-slate-950 rounded-2xl col-span-1 relative overflow-hidden order-6 min-h-[140px]">
+                    <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764081746/Gemini_Generated_Image_d6t5v5d6t5v5d6t5_z9farg.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Shopping" />
                  </div>
-                <!-- Mobile Indigo Card (+30%) -->
-                <div class="bg-indigo-400 text-white rounded-3xl p-6 flex flex-col justify-center col-span-1 order-6 relative overflow-hidden">
-                   <i data-lucide="coins" class="w-12 h-12 absolute top-[-10px] right-[-10px] opacity-20 rotate-12"></i>
-                   <!-- Added Animation Attributes -->
-                   <div class="text-3xl font-bold mb-1 count-up" data-value="30" data-prefix="+" data-suffix="%">0</div>
-                   <div class="text-xs opacity-90" data-key="stat_profit">Average client profit<br>growth in just 3 months</div>
-                </div>
             </div>
 
             <!-- >>> TAMPILAN DESKTOP (Updated Layout) <<< -->
-            <div class="hidden md:grid grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <!-- Updated max-w-7xl to max-w-6xl to match the section above -->
+            <div class="hidden md:grid grid-cols-3 gap-6 max-w-6xl mx-auto">
                 
                 <!-- COL 1 -->
                 <div class="flex flex-col gap-6">
-                    <!-- Top Card (Short, Blue 400) - Adjusted Height to 300px -->
-                    <div class="bg-blue-400 text-white rounded-[2.5rem] p-10 flex flex-col justify-center h-[300px] hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <i data-lucide="star" class="w-32 h-32 absolute -top-4 -right-4 opacity-20 rotate-12"></i>
-                        <!-- FIX: Added Animation Attributes -->
-                        <div class="text-7xl font-bold mb-2 tracking-tighter count-up relative z-10" data-value="4.9" data-decimals="1">0</div>
-                        <div class="text-2xl font-medium opacity-90 relative z-10" data-key="stat_satisfaction">Satisfaction Client</div>
+                    <!-- Top Card (Short, Blue 400) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="bg-blue-400 text-white rounded-2xl p-8 flex flex-col justify-center h-[300px] hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
+                        <i data-lucide="star" class="w-24 h-24 absolute -top-4 -right-4 opacity-20 rotate-12"></i>
+                        <!-- Reduced Font Sizes -->
+                        <div class="text-6xl font-bold mb-2 tracking-tighter count-up relative z-10" data-value="4.9" data-decimals="1">0</div>
+                        <div class="text-xl font-medium opacity-90 relative z-10" data-key="stat_satisfaction">Satisfaction Client</div>
                     </div>
 
-                    <!-- Bottom Card (Tall, Blue 600) - Adjusted Height to 300px -->
-                    <div class="bg-blue-600 text-white rounded-[2.5rem] p-10 flex flex-col justify-between h-[300px] hover:shadow-xl hover:shadow-blue-200 transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <i data-lucide="building-2" class="w-40 h-40 absolute -bottom-8 -right-8 opacity-20 rotate-[-12deg]"></i>
-                        <!-- FIX: Added Animation Attributes -->
-                        <div class="text-8xl font-bold tracking-tighter count-up relative z-10" data-value="3" data-prefix="+">0</div>
-                        <div class="text-3xl opacity-90 leading-snug font-medium relative z-10" data-key="stat_enterprises">Small and Medium<br>Enterprises</div>
+                    <!-- Bottom Card (Tall, Blue 600) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="bg-blue-600 text-white rounded-2xl p-8 flex flex-col justify-between h-[300px] hover:shadow-xl hover:shadow-blue-200 transition-all hover:-translate-y-1 relative overflow-hidden">
+                        <i data-lucide="building-2" class="w-32 h-32 absolute -bottom-8 -right-8 opacity-20 rotate-[-12deg]"></i>
+                        <!-- Reduced Font Sizes -->
+                        <div class="text-7xl font-bold tracking-tighter count-up relative z-10" data-value="3" data-prefix="+">0</div>
+                        <div class="text-2xl opacity-90 leading-snug font-medium relative z-10" data-key="stat_enterprises">Small and Medium<br>Enterprises</div>
                     </div>
                 </div>
 
                 <!-- COL 2 -->
                 <div class="flex flex-col gap-6">
-                    <!-- UI Image (Tall) - Adjusted Height to 350px -->
-                    <div class="bg-gray-50 rounded-[2.5rem] overflow-hidden h-[350px] relative group hover:shadow-xl transition-all hover:-translate-y-1">
+                    <!-- UI Image (Tall) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="bg-gray-50 rounded-2xl overflow-hidden h-[350px] relative group hover:shadow-xl transition-all hover:-translate-y-1">
                         <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764080453/Gemini_Generated_Image_z0vbusz0vbusz0vb_1_pahnsc.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Mobile Interface">
                     </div>
-                    <!-- Hello Money Card (Short) - Adjusted Height to 250px (Text Removed) -->
-                    <div class="bg-slate-950 rounded-[2.5rem] p-8 flex items-center justify-center relative overflow-hidden h-[250px] hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764081746/Gemini_Generated_Image_d6t5v5d6t5v5d6t5_z9farg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" alt="Dark Mode" />
+                    <!-- Hello Money Card (Short) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="bg-slate-950 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden h-[250px] hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764081746/Gemini_Generated_Image_d6t5v5d6t5v5d6t5_z9farg.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Dark Mode" />
                     </div>
                 </div>
 
                 <!-- COL 3 -->
                 <div class="flex flex-col gap-6">
-                    <!-- Team Image (Wide) - Adjusted Height to 240px -->
-                    <div class="rounded-[2.5rem] overflow-hidden h-[240px] relative hover:shadow-lg transition-all hover:-translate-y-1 group">
+                    <!-- Team Image (Wide) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="rounded-2xl overflow-hidden h-[240px] relative hover:shadow-lg transition-all hover:-translate-y-1 group">
                          <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764081645/Gemini_Generated_Image_aldz1faldz1faldz_qixpcs.jpg" alt="Team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
-                    <!-- Purple Card (+180%) - Adjusted Height to 168px -->
-                    <div class="bg-purple-600 text-white rounded-[2.5rem] p-8 flex flex-col justify-center h-[168px] hover:shadow-lg hover:shadow-purple-200 transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <i data-lucide="trending-up" class="w-24 h-24 absolute -top-2 -right-2 opacity-20 rotate-6"></i>
-                        <!-- Added Animation Attributes -->
-                        <div class="text-5xl font-bold mb-2 tracking-tighter count-up relative z-10" data-value="180" data-prefix="+" data-suffix="%">0</div>
-                        <div class="text-base opacity-90 leading-snug relative z-10" data-key="stat_growth">Average client traffic<br>growth in just 3 months</div>
+                    <!-- Purple Card (+180%) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="bg-purple-600 text-white rounded-2xl p-6 flex flex-col justify-center h-[168px] hover:shadow-lg hover:shadow-purple-200 transition-all hover:-translate-y-1 relative overflow-hidden">
+                        <i data-lucide="trending-up" class="w-20 h-20 absolute -top-2 -right-2 opacity-20 rotate-6"></i>
+                        <!-- Reduced Font Sizes -->
+                        <div class="text-4xl font-bold mb-2 tracking-tighter count-up relative z-10" data-value="180" data-prefix="+" data-suffix="%">0</div>
+                        <div class="text-sm opacity-90 leading-snug relative z-10" data-key="stat_growth">Average client traffic<br>growth in just 3 months</div>
                     </div>
-                    <!-- Light Blue Card (+30%) - Adjusted Height to 168px -->
-                    <div class="bg-indigo-400 text-white rounded-[2.5rem] p-8 flex flex-col justify-center h-[168px] hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <i data-lucide="coins" class="w-24 h-24 absolute -top-2 -right-2 opacity-20 rotate-12"></i>
-                        <!-- Added Animation Attributes -->
-                        <div class="text-5xl font-bold mb-2 tracking-tighter count-up relative z-10" data-value="30" data-prefix="+" data-suffix="%">0</div>
-                        <div class="text-base opacity-90 leading-snug relative z-10" data-key="stat_profit">Average client profit<br>growth in just 3 months</div>
+                    <!-- Light Blue Card (+30%) - Updated radius to 16px (rounded-2xl) -->
+                    <div class="bg-indigo-400 text-white rounded-2xl p-6 flex flex-col justify-center h-[168px] hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-1 relative overflow-hidden">
+                        <i data-lucide="coins" class="w-20 h-20 absolute -top-2 -right-2 opacity-20 rotate-12"></i>
+                        <!-- Reduced Font Sizes -->
+                        <div class="text-4xl font-bold mb-2 tracking-tighter count-up relative z-10" data-value="30" data-prefix="+" data-suffix="%">0</div>
+                        <div class="text-sm opacity-90 leading-snug relative z-10" data-key="stat_profit">Average client profit<br>growth in just 3 months</div>
                     </div>
                 </div>
 
@@ -373,48 +393,52 @@
                 <div class="flex flex-col md:flex-row gap-8 md:gap-12">
                     <div class="md:w-1/4 shrink-0">
                         <div class="sticky top-24 text-center md:text-left">
-                            <h3 class="text-blue-600 font-bold text-xl md:text-2xl mb-2" data-key="explore_label">Explore</h3>
-                            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6" data-key="explore_title">Our Case</h2>
-                            <button class="hidden md:flex items-center gap-2 text-slate-600 hover:text-blue-600 font-medium group mt-2">
-                                <span data-key="btn_see_projects">See All Projects</span> <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            <!-- Reduced Title Size -->
+                            <h3 class="text-blue-600 font-bold text-lg md:text-xl mb-2" data-key="explore_label">Explore</h3>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6" data-key="explore_title">Our Case</h2>
+                            <button class="hidden md:flex items-center gap-2 text-slate-600 hover:text-blue-600 font-medium group mt-2 text-sm">
+                                <span data-key="btn_see_projects">See All Projects</span> <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                             </button>
                         </div>
                     </div>
                     <div class="md:w-3/4 w-full">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Penjahit 'Di Phin (Fixed: Height Auto to prevent cropping) -->
-                            <div class="group relative overflow-hidden rounded-3xl cursor-pointer w-full md:col-span-2 shadow-lg hover:shadow-xl transition-shadow">
+                            <div class="group relative overflow-hidden rounded-2xl cursor-pointer w-full md:col-span-2 shadow-lg hover:shadow-xl transition-shadow">
                                 <!-- Updated Image for Penjahit 'Di Phin -->
                                 <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764078684/Rectangle_45_iamihv.png" alt="Project 1" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                                <!-- Changed gradient from-black/80 to from-blue-900/90 -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-transparent to-transparent flex flex-col justify-end p-8">
                                     <span class="text-white/80 text-xs font-medium tracking-wide uppercase mb-1" data-key="service_web_title">Web Development</span>
                                     <!-- Title removed here -->
                                 </div>
                             </div>
                             
                             <!-- CutLab Studio (Height Auto) -->
-                            <div class="group relative overflow-hidden rounded-3xl cursor-pointer w-full md:col-span-1 shadow-lg hover:shadow-xl transition-shadow">
+                            <div class="group relative overflow-hidden rounded-2xl cursor-pointer w-full md:col-span-1 shadow-lg hover:shadow-xl transition-shadow">
                                 <!-- Updated Image for CutLab Studio -->
                                 <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764064945/Frame_134_zldhzb.png" alt="Project 2" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                                <!-- Changed gradient from-black/80 to from-blue-900/90 -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-transparent to-transparent flex flex-col justify-end p-8">
                                     <span class="text-white/80 text-xs font-medium tracking-wide uppercase mb-1">Branding Design</span>
                                     <!-- Title CutLab removed here -->
                                 </div>
                             </div>
 
                             <!-- AWCADEMY (Height Auto) -->
-                            <div class="group relative overflow-hidden rounded-3xl cursor-pointer w-full md:col-span-1 shadow-lg hover:shadow-xl transition-shadow">
+                            <div class="group relative overflow-hidden rounded-2xl cursor-pointer w-full md:col-span-1 shadow-lg hover:shadow-xl transition-shadow">
                                 <!-- Updated Image for AWCADEMY replacement -->
                                 <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764063789/image_11_lsvniw.png" alt="Project 3" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                                <!-- Changed gradient from-black/80 to from-blue-900/90 -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-transparent to-transparent flex flex-col justify-end p-8">
                                     <span class="text-white/80 text-xs font-medium tracking-wide uppercase mb-1">Digital Marketing</span>
                                     <!-- Title AWCADEMY removed here -->
                                 </div>
                             </div>
                         </div>
                         <div class="mt-6 text-center md:hidden">
-                             <button class="flex items-center justify-center gap-2 text-slate-600 hover:text-blue-600 font-medium mx-auto">
-                                <span data-key="btn_see_projects">See All Projects</span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                             <button class="flex items-center justify-center gap-2 text-slate-600 hover:text-blue-600 font-medium mx-auto text-sm">
+                                <span data-key="btn_see_projects">See All Projects</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
@@ -424,17 +448,19 @@
 
         <!-- SERVICES DETAIL SECTION -->
         <section id="services-detail" class="py-16 md:py-24 container mx-auto px-4 md:px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
                 <div>
-                    <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                    <!-- Reduced Title Size -->
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
                         <span class="text-blue-600" data-key="services_full_title_1">Services We Offer</span><br/>
                         <span data-key="services_full_title_2">as a Full-Service</span><br/>
                         <span data-key="services_full_title_3">Digital Agency</span>
                     </h2>
                 </div>
                 <div class="pt-2">
-                    <h3 class="text-xl md:text-2xl font-bold mb-4 leading-snug" data-key="services_subtitle">We operate in three core areas — Design, Development, and Marketing.</h3>
-                    <p class="text-slate-600 leading-relaxed" data-key="services_desc">
+                    <!-- Reduced Subtitle Size -->
+                    <h3 class="text-lg md:text-xl font-bold mb-4 leading-snug" data-key="services_subtitle">We operate in three core areas — Design, Development, and Marketing.</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm md:text-base" data-key="services_desc">
                         Beberapa klien hanya membutuhkan satu bagian, yang lain membutuhkan paket lengkap dan kami menangani keduanya. Kami membantu bisnis mengubah kehadiran online mereka, membuat sistem yang dapat diskalakan, dan menjangkau audiens yang tepat dari branding hingga otomatisasi backend.
                     </p>
                 </div>
@@ -444,12 +470,13 @@
                 <div class="group cursor-pointer flex flex-col">
                     <div class="flex justify-between items-end mb-6">
                         <!-- Updated Title Here -->
-                        <h3 class="text-3xl font-bold text-slate-900" data-key="service_design_title">Product & UI/UX Design</h3>
-                        <div class="w-12 h-12 rounded-full border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex items-center justify-center text-blue-600">
-                            <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-900" data-key="service_design_title">Product & UI/UX Design</h3>
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex items-center justify-center text-blue-600">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 md:w-6 md:h-6"></i>
                         </div>
                     </div>
-                    <div class="rounded-3xl overflow-hidden h-[400px] relative shadow-xl shadow-blue-100/50 hover:shadow-2xl transition-shadow duration-500">
+                    <!-- Updated radius to 16px (rounded-2xl) -->
+                    <div class="rounded-2xl overflow-hidden h-[350px] md:h-[400px] relative shadow-xl shadow-blue-100/50 hover:shadow-2xl transition-shadow duration-500">
                         <!-- Updated Image for Packaging & UI/UX Design -->
                         <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764078439/Gemini_Generated_Image_mct8xtmct8xtmct8-Photoroom_zzfyaw.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Design Service" />
                         <div class="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
@@ -458,24 +485,26 @@
                 </div>
                 <div class="group cursor-pointer flex flex-col">
                     <div class="flex justify-between items-end mb-6">
-                        <h3 class="text-3xl font-bold text-slate-900" data-key="service_marketing_title">Marketing</h3>
-                        <div class="w-12 h-12 rounded-full border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex items-center justify-center text-blue-600">
-                            <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-900" data-key="service_marketing_title">Marketing</h3>
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex items-center justify-center text-blue-600">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 md:w-6 md:h-6"></i>
                         </div>
                     </div>
-                    <div class="rounded-3xl overflow-hidden h-[400px] relative shadow-xl shadow-pink-100/50 bg-pink-50 hover:shadow-2xl transition-shadow duration-500">
+                    <!-- Updated radius to 16px (rounded-2xl) -->
+                    <div class="rounded-2xl overflow-hidden h-[350px] md:h-[400px] relative shadow-xl shadow-pink-100/50 bg-pink-50 hover:shadow-2xl transition-shadow duration-500">
                         <!-- Updated Image for Marketing & AI Automation -->
                         <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764076680/Gemini_Generated_Image_8ymk8g8ymk8g8ymk-Photoroom_oksuga.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Layanan Marketing & AI Automation" />
                     </div>
                 </div>
                 <div class="group cursor-pointer flex flex-col">
                     <div class="flex justify-between items-end mb-6">
-                        <h3 class="text-3xl font-bold text-slate-900 leading-tight" data-key="service_web_title">Website<br>Development</h3>
-                        <div class="w-12 h-12 rounded-full border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex items-center justify-center text-blue-600">
-                            <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-900 leading-tight" data-key="service_web_title">Website<br>Development</h3>
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex items-center justify-center text-blue-600">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 md:w-6 md:h-6"></i>
                         </div>
                     </div>
-                    <div class="rounded-3xl overflow-hidden h-[400px] relative shadow-xl shadow-orange-100/50 bg-orange-50 hover:shadow-2xl transition-shadow duration-500">
+                    <!-- Updated radius to 16px (rounded-2xl) -->
+                    <div class="rounded-2xl overflow-hidden h-[350px] md:h-[400px] relative shadow-xl shadow-orange-100/50 bg-orange-50 hover:shadow-2xl transition-shadow duration-500">
                         <!-- Updated Image for Web Development -->
                         <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764079982/Frame_12_2_c6queu.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Web Development" />
                     </div>
@@ -489,17 +518,18 @@
                 <!-- Header & Navigation -->
                 <div class="flex justify-between items-end mb-12">
                     <div>
-                        <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900">
+                        <!-- Reduced Title Size -->
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900">
                             <span class="text-blue-600" data-key="clients_title_1">What</span> <span data-key="clients_title_2">clients say</span>
                         </h2>
-                        <div class="h-1 w-24 bg-blue-600 mt-6 rounded-full hidden md:block"></div>
+                        <div class="h-1 w-20 bg-blue-600 mt-6 rounded-full hidden md:block"></div>
                     </div>
                     <div class="flex gap-4">
-                        <button onclick="handleManualPrev()" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 group">
-                            <i data-lucide="chevron-left" class="w-6 h-6 group-active:-translate-x-1 transition-transform"></i>
+                        <button onclick="handleManualPrev()" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 group">
+                            <i data-lucide="chevron-left" class="w-5 h-5 group-active:-translate-x-1 transition-transform"></i>
                         </button>
-                        <button onclick="handleManualNext()" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 group">
-                            <i data-lucide="chevron-right" class="w-6 h-6 group-active:translate-x-1 transition-transform"></i>
+                        <button onclick="handleManualNext()" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 group">
+                            <i data-lucide="chevron-right" class="w-5 h-5 group-active:translate-x-1 transition-transform"></i>
                         </button>
                     </div>
                 </div>
@@ -516,13 +546,14 @@
         <section class="py-16 md:py-20 container mx-auto px-4 md:px-6" id="faq">
             <div class="grid md:grid-cols-12 gap-12">
                 <div class="md:col-span-5">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-center md:text-left">
+                    <!-- Reduced Title Size -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center md:text-left">
                         <span class="text-blue-600" data-key="faq_title_1">Frequently</span><br/><span data-key="faq_title_2">Asked Questions</span>
                     </h2>
-                    <p class="text-slate-500 mb-8 leading-relaxed" data-key="faq_desc">
+                    <p class="text-slate-500 mb-8 leading-relaxed text-sm" data-key="faq_desc">
                         Punya pertanyaan? Kami punya jawabannya. Jika Anda tidak menemukan apa yang Anda cari, jangan ragu untuk menghubungi tim kami.
                     </p>
-                    <button class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1 hover:text-blue-800" data-key="btn_contact_support">
+                    <button class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1 hover:text-blue-800 text-sm" data-key="btn_contact_support">
                         Contact Support
                     </button>
                 </div>
@@ -530,36 +561,36 @@
                     
                     <!-- FAQ Items -->
                     <div class="faq-item border-b border-gray-200 last:border-0 bg-gray-50 rounded-2xl px-4 md:bg-transparent md:rounded-none md:px-0">
-                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none faq-btn">
-                            <span class="text-base md:text-lg font-bold text-slate-900" data-key="faq_q1">What services do you offer?</span>
-                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300"></i>
+                        <button class="w-full py-4 flex justify-between items-center text-left focus:outline-none faq-btn">
+                            <span class="text-sm md:text-base font-bold text-slate-900" data-key="faq_q1">What services do you offer?</span>
+                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300 w-5 h-5"></i>
                         </button>
                         <div class="overflow-hidden max-h-0 transition-all duration-300 ease-in-out faq-content opacity-0">
                             <p class="text-slate-600 text-sm leading-relaxed mb-6" data-key="faq_a1">We offer full-service digital agency solutions including UI/UX Design, Website & App Development, and Digital Marketing.</p>
                         </div>
                     </div>
                     <div class="faq-item border-b border-gray-200 last:border-0 bg-gray-50 rounded-2xl px-4 mt-3 md:mt-0 md:bg-transparent md:rounded-none md:px-0">
-                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none faq-btn">
-                            <span class="text-base md:text-lg font-bold text-slate-900" data-key="faq_q2">How long does it take to complete a project?</span>
-                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300"></i>
+                        <button class="w-full py-4 flex justify-between items-center text-left focus:outline-none faq-btn">
+                            <span class="text-sm md:text-base font-bold text-slate-900" data-key="faq_q2">How long does it take to complete a project?</span>
+                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300 w-5 h-5"></i>
                         </button>
                         <div class="overflow-hidden max-h-0 transition-all duration-300 ease-in-out faq-content opacity-0">
                             <p class="text-slate-600 text-sm leading-relaxed mb-6" data-key="faq_a2">Project duration varies. Standard websites take 2-4 weeks, custom applications take 2-6 months.</p>
                         </div>
                     </div>
                     <div class="faq-item border-b border-gray-200 last:border-0 bg-gray-50 rounded-2xl px-4 mt-3 md:mt-0 md:bg-transparent md:rounded-none md:px-0">
-                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none faq-btn">
-                            <span class="text-base md:text-lg font-bold text-slate-900" data-key="faq_q3">Do you work with small businesses or only large companies?</span>
-                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300"></i>
+                        <button class="w-full py-4 flex justify-between items-center text-left focus:outline-none faq-btn">
+                            <span class="text-sm md:text-base font-bold text-slate-900" data-key="faq_q3">Do you work with small businesses or only large companies?</span>
+                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300 w-5 h-5"></i>
                         </button>
                         <div class="overflow-hidden max-h-0 transition-all duration-300 ease-in-out faq-content opacity-0">
                             <p class="text-slate-600 text-sm leading-relaxed mb-6" data-key="faq_a3">We work with SMEs, startups, and large corporations.</p>
                         </div>
                     </div>
                     <div class="faq-item border-b border-gray-200 last:border-0 bg-gray-50 rounded-2xl px-4 mt-3 md:mt-0 md:bg-transparent md:rounded-none md:px-0">
-                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none faq-btn">
-                            <span class="text-base md:text-lg font-bold text-slate-900" data-key="faq_q4">How much does a project cost?</span>
-                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300"></i>
+                        <button class="w-full py-4 flex justify-between items-center text-left focus:outline-none faq-btn">
+                            <span class="text-sm md:text-base font-bold text-slate-900" data-key="faq_q4">How much does a project cost?</span>
+                            <i data-lucide="chevron-down" class="text-blue-600 icon-chevron transition-transform duration-300 w-5 h-5"></i>
                         </button>
                         <div class="overflow-hidden max-h-0 transition-all duration-300 ease-in-out faq-content opacity-0">
                             <p class="text-slate-600 text-sm leading-relaxed mb-6" data-key="faq_a4">Cost depends on the scope of work. Contact us for a quote.</p>
@@ -638,6 +669,62 @@
             </svg>
         </a>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111827] text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-1">
+                    <div class="text-2xl font-bold text-blue-600 mb-4 tracking-tighter">IGNite</div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-key="footer_desc">
+                        Smart design. Scalable systems. Real results.
+                    </p>
+                    <button class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-colors" data-key="btn_contact">
+                         Contact US
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 md:col-span-3 md:flex md:justify-between">
+                    <div>
+                        <h4 class="font-bold mb-4 text-base" data-key="footer_services">Services</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors" data-key="nav_design">Design</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" data-key="nav_marketing">Marketing</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" data-key="service_web_title">Web Development</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4 text-base" data-key="footer_resources">Resources</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors" data-key="nav_article">Article</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-1">
+                        <h4 class="font-bold mb-4 text-base" data-key="footer_contact">Contact Us</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li>igniteinfo@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                 <div class="flex gap-6 font-semibold">
+                    <a href="#" class="hover:text-white transition-colors" data-key="privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors" data-key="term">Term & Condition</a>
+                    <a href="#" class="hover:text-white transition-colors" data-key="disclaimer">Disclaimer</a>
+                 </div>
+                 <div class="flex gap-6">
+                    <i data-lucide="youtube" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="instagram" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="twitter" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="linkedin" class="w-5 h-5 hover:text-white cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script>
@@ -952,33 +1039,32 @@
         // --- TESTIMONIAL CAROUSEL LOGIC (SMOOTH & MULTILINGUAL) ---
         var testimonialsData = [
             {
-                name: "Arif Wijaya",
-                role: "CEO, Dapur Nusantara",
-                // Menyimpan data dalam 2 bahasa
-                quoteId: "Beberapa klien hanya membutuhkan satu bagian, yang lain membutuhkan paket lengkap dan kami menangani keduanya. Kami membantu bisnis mengubah kehadiran online mereka.",
-                quoteEn: "Some clients just need one piece, others need the full package and we handle both. We help businesses transform their online presence.",
-                img: "https://i.pravatar.cc/150?u=arif"
+                 name: "Elisro",
+                 role: "Owner, Sinar Box",
+                 quoteId: "Membangun brand Sinar Box dari nol itu nggak gampang. Tapi berkat bantuan branding dan website ini, visibilitas kami langsung naik. Bisnis baru pun jadi kelihatan profesional dan siap bersaing.",
+                 quoteEn: "Building the Sinar Box brand from scratch wasn't easy. But thanks to this branding and website, our visibility shot up immediately. Even as a new business, we look professional and ready to compete.",
+                 img: "https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764162884/Frame_10_4_r5ommq.png"
             },
             {
-                name: "Dewi Kartika",
-                role: "Marketing Manager, Lokal Mode",
-                quoteId: "Kami membantu bisnis mengubah kehadiran online mereka, membuat sistem yang dapat diskalakan, dan menjangkau audiens yang tepat.",
-                quoteEn: "We help businesses transform their online presence, create scalable systems, and reach the right audience.",
-                img: "https://i.pravatar.cc/150?u=dewi"
+                name: "Tji Phin",
+                role: "Owner, Penjahit Tji Phin",
+                quoteId: "Awalnya saya ragu apa perlu website untuk usaha jahit. Tapi hasilnya luar biasa, banyak pelanggan baru datang karena mereka bisa lihat detail kualitas jahitan kami dengan jelas di web.",
+                quoteEn: "I was initially doubtful about needing a website for a tailoring business. But the results are amazing, many new customers came because they could clearly see the details of our stitching quality on the web.",
+                img: "https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764158840/Frame_28_1_jodjry.png"
             },
             {
-                name: "Budi Santoso",
-                role: "Founder, TechMaju",
+                name: "Nessa",
+                role: "Owner, Miss Nessa Computer Lab",
                 quoteId: "Tim IGNite benar-benar mengerti apa yang kami butuhkan untuk skala bisnis kami ke level berikutnya. Sangat direkomendasikan untuk transformasi digital!",
                 quoteEn: "Team IGNite truly understands what we need to scale our business to the next level. Highly recommended for digital transformation!",
                 img: "https://i.pravatar.cc/150?u=budi"
             },
             {
-                name: "Siti Aminah",
-                role: "Owner, Batik Modern",
-                quoteId: "Penjualan kami meningkat 200% dalam 3 bulan pertama setelah peluncuran website baru. Luar biasa!",
-                quoteEn: "Our sales increased by 200% in the first 3 months after the new website launch. Amazing!",
-                img: "https://i.pravatar.cc/150?u=siti"
+                name: "Ade",
+                 role: "Tim, Cutlab Studio",
+                 quoteId: "Kerja sama bareng tim IGNite rasanya kayak punya partner sendiri, bukan sekadar vendor. Mereka sangat profesional secara teknis, tapi diskusinya tetap santai dan ramah. Revisi pun dilayani dengan sabar sampai sesuai ekspektasi.",
+                 quoteEn: "Working with the IGNite team feels like having our own partner, not just a vendor. They are technically very professional, yet discussions remain relaxed and friendly. They handled revisions patiently until it met our expectations.",
+                 img: "https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764176844/Frame_17_a5aflw.png"
             }
         ];
 
@@ -987,16 +1073,16 @@
 
         function createCardNode(item) {
             var card = document.createElement('div');
-            card.className = "testimonial-card p-8 rounded-[2rem] bg-white border border-gray-50 shadow-xl shadow-gray-100 flex relative group shrink-0 min-h-[250px] overflow-hidden";
+            // Mengembalikan transisi dinamis untuk kartu
+            card.className = "testimonial-card p-8 rounded-2xl bg-white border border-gray-50 shadow-xl shadow-gray-100 flex relative group shrink-0 min-h-[250px] overflow-hidden";
             
             // Pilih teks berdasarkan bahasa saat ini
             var quoteText = currentLang === 'id' ? item.quoteId : item.quoteEn;
 
             card.innerHTML = `
-                <div class="quote-icon text-blue-600 shrink-0 absolute top-8 left-8 transition-all duration-700 z-10">
-                   <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                       <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" />
-                   </svg>
+                <div class="quote-icon shrink-0 absolute top-8 left-8 transition-all duration-700 z-10">
+                   <!-- Replaced SVG with Image Icon -->
+                   <img src="https://res.cloudinary.com/dhgzxt2b5/image/upload/v1764159499/Frame_16_1_o9bdjm.png" alt="Quote Icon" class="w-10 h-10 object-contain" />
                 </div>
                 <div class="profile-wrapper flex gap-4 shrink-0 transition-all duration-700 z-10">
                      <img src="${item.img}" alt="${item.name}" class="profile-img rounded-full object-cover shadow-md transition-all duration-700" />
@@ -1005,8 +1091,9 @@
                         <p class="text-sm text-slate-500 truncate">${item.role}</p>
                      </div>
                 </div>
-                <div class="text-wrapper transition-all duration-700 z-10 min-w-[280px]">
-                    <p class="text-slate-600 leading-relaxed text-sm md:text-base break-words whitespace-normal w-full text-left">
+                <div class="text-wrapper transition-all duration-700 z-10">
+                    <!-- FIX: Mengubah text-sm md:text-base menjadi text-xs md:text-sm agar lebih kecil dan rapi -->
+                    <p class="text-slate-600 leading-relaxed text-xs md:text-sm break-words whitespace-normal text-justify w-[260px]">
                         ${quoteText}
                     </p>
                 </div>
@@ -1015,8 +1102,10 @@
         }
 
         function updateCardStyles(card, isActive) {
+            // Kembalikan logika animasi kartu (membesar/mengecil)
             var activeClasses = ["w-[85vw]", "md:w-[600px]", "flex-col", "md:flex-row", "items-center", "justify-center", "gap-8"];
             var inactiveClasses = ["w-[75vw]", "md:w-[350px]", "flex-col", "justify-center", "gap-6"];
+            
             var quoteIcon = card.querySelector('.quote-icon');
             var profileWrapper = card.querySelector('.profile-wrapper');
             var profileImg = card.querySelector('.profile-img');
@@ -1025,24 +1114,41 @@
             if (isActive) {
                 card.classList.remove(...inactiveClasses);
                 card.classList.add(...activeClasses);
+                
                 quoteIcon.classList.remove("mb-2", "relative");
                 quoteIcon.classList.add("absolute", "top-8", "left-8");
+                
+                // FIX: Membersihkan kelas lama
                 profileWrapper.classList.remove("flex-row", "items-center", "mt-2");
-                profileWrapper.classList.add("flex-col", "mt-16", "text-left");
+                
+                // FIX: Menambahkan kelas responsif. 
+                // 'items-center text-center' untuk Mobile (Tengah)
+                // 'md:items-start md:text-left' untuk Desktop (Kiri)
+                profileWrapper.classList.add("flex-col", "mt-16", "items-center", "md:items-start", "text-center", "md:text-left");
+                
                 profileImg.classList.remove("w-14", "h-14");
                 profileImg.classList.add("w-20", "h-20");
+                
                 textWrapper.classList.remove("w-full", "mb-8");
-                textWrapper.classList.add("flex-1", "min-w-0", "mt-4", "md:mt-0");
+                // Text wrapper sekarang menyesuaikan posisi tapi lebar konten text di dalamnya (p) sudah di-lock di createCardNode
+                textWrapper.classList.add("mt-4", "md:mt-0"); 
             } else {
                 card.classList.remove(...activeClasses);
                 card.classList.add(...inactiveClasses);
+                
                 quoteIcon.classList.remove("absolute", "top-8", "left-8");
                 quoteIcon.classList.add("mb-2", "relative");
-                profileWrapper.classList.remove("flex-col", "mt-16", "text-left");
+                
+                // FIX: Membersihkan kelas aktif yang baru ditambahkan di atas
+                profileWrapper.classList.remove("flex-col", "mt-16", "items-center", "md:items-start", "text-center", "md:text-left");
+                
+                // Kembali ke layout baris untuk kartu tidak aktif
                 profileWrapper.classList.add("flex-row", "items-center", "mt-2");
+                
                 profileImg.classList.remove("w-20", "h-20");
                 profileImg.classList.add("w-14", "h-14");
-                textWrapper.classList.remove("flex-1", "min-w-0", "mt-4", "md:mt-0");
+                
+                textWrapper.classList.remove("mt-4", "md:mt-0");
                 textWrapper.classList.add("w-full", "mb-8");
             }
         }
@@ -1058,7 +1164,7 @@
         }
 
         function updateAllCards() {
-            if (!track || !track.children) return; // Safety check
+            if (!track || !track.children) return; 
             Array.from(track.children).forEach((card, index) => {
                 updateCardStyles(card, index === 0);
             });
@@ -1076,7 +1182,7 @@
                 track.appendChild(track.firstElementChild);
                 track.style.transform = 'translateX(0)';
                 void track.offsetWidth;
-                updateAllCards();
+                updateAllCards(); // Aktifkan kembali update style
             }, 800);
         }
 
@@ -1084,7 +1190,7 @@
             if (!track || !track.children.length) return;
             track.style.transition = 'none';
             track.insertBefore(track.lastElementChild, track.firstElementChild);
-            updateAllCards();
+            updateAllCards(); // Aktifkan kembali update style
         }
 
         function startCarousel() {
