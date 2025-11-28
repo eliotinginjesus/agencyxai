@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const dotenv = require('dotenv');
+require('dotenv').config(); // <-- PERBAIKAN: Memuat variabel dari .env
 const cors = require('cors');
 const {
   GoogleGenerativeAI,
