@@ -375,6 +375,53 @@
 
     </main>
 
+    <!-- CHAT WIDGET -->
+    <div class="fixed bottom-24 right-6 z-50 flex flex-col items-end gap-4 font-sans pointer-events-none">
+        <div id="chat-window" class="hidden w-[90vw] md:w-96 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 flex flex-col h-[500px] max-h-[80vh] pointer-events-auto">
+            <div class="bg-blue-600 p-4 flex justify-between items-center text-white shadow-md">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <i data-lucide="bot" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">IGNite AI Support</h4>
+                        <p class="text-[10px] text-blue-100 flex items-center gap-1.5"><span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> Online</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4 scroll-smooth">
+                <div class="flex gap-3 items-start">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-2xl rounded-tl-none shadow-sm text-sm text-slate-600 border border-slate-100 max-w-[85%]">
+                        <p id="chat-welcome">Halo! 👋 Ada yang bisa saya bantu terkait layanan desain kami?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 bg-white border-t border-slate-100">
+                <form onsubmit="handleChatSubmit(event)" class="flex gap-2 relative">
+                    <input type="text" id="user-input" placeholder="Tanya tentang desain..." class="flex-1 pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all" autocomplete="off">
+                    <button type="submit" class="absolute right-1 top-1 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg" id="send-btn">
+                        <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <button onclick="toggleChat()" id="chat-btn" class="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-[0_10px_40px_-10px_rgba(37,99,235,0.5)] flex items-center justify-center transition-all hover:scale-110 active:scale-95 group z-50 pointer-events-auto">
+            <div class="relative">
+                <i data-lucide="message-circle" class="w-7 h-7 transition-transform group-hover:-translate-y-0.5"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 border-2 border-blue-600 rounded-full animate-bounce"></span>
+            </div>
+        </button>
+    </div>
+
     <!-- FOOTER -->
     <footer class="bg-[#111827] text-white pt-16 pb-8 mt-auto">
         <div class="container mx-auto px-6">
@@ -538,6 +585,7 @@
                 faq_q3: "Berapa lama proses pengerjaan logo?",
                 faq_a3: "Untuk desain logo profesional, biasanya memakan waktu 5-7 hari kerja, mulai dari riset, sketsa, hingga finalisasi digital.",
                 cta_title: "Butuh Desain Keren Sekarang?",
+                chat_welcome: "Halo! 👋 Ada yang bisa saya bantu terkait layanan desain kami?",
                 cta_desc: "Jangan biarkan brand Anda terlihat biasa saja. Tingkatkan citra bisnis Anda dengan sentuhan desain profesional dari kami.",
                 btn_cta_whatsapp: "Hubungi via WhatsApp",
                 footer_desc: "Desain cerdas. Sistem terukur. Hasil nyata.",
@@ -589,6 +637,7 @@
                 faq_q3: "How long does the logo process take?",
                 faq_a3: "For professional logo design, it usually takes 5-7 working days, starting from research, sketching, to digital finalization.",
                 cta_title: "Need Stunning Design Now?",
+                chat_welcome: "Hello! 👋 How can I help you with our design services?",
                 cta_desc: "Don't let your brand look average. Elevate your business image with our professional design touch.",
                 btn_cta_whatsapp: "Contact via WhatsApp",
                 footer_desc: "Smart design. Scalable systems. Real results.",
@@ -609,6 +658,12 @@
             elements.forEach(el => {
                 var key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
+                    if (key === 'chat_welcome') {
+                        var chatWelcomeEl = document.getElementById('chat-welcome');
+                        if (chatWelcomeEl) chatWelcomeEl.innerText = translations[lang][key];
+                        var chatInputEl = document.getElementById('user-input');
+                        if (chatInputEl) chatInputEl.placeholder = lang === 'id' ? 'Tanya tentang desain...' : 'Ask about design...';
+                    }
                     el.innerText = translations[lang][key];
                 }
             });
@@ -626,6 +681,72 @@
                 btnId.className = 'lang-inactive transition-colors';
                 btnEn.className = 'lang-active transition-colors';
             }
+        }
+
+        // --- Chat Logic ---
+        const chatWindowEl = document.getElementById('chat-window');
+        const chatBtnEl = document.getElementById('chat-btn');
+        const chatMessagesEl = document.getElementById('chat-messages');
+        const chatInputEl = document.getElementById('user-input'); 
+        const sendBtnEl = document.getElementById('send-btn');
+        let isChatOpen = false;
+
+        function toggleChat() {
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                chatWindowEl.classList.remove('hidden');
+                setTimeout(() => {
+                    chatWindowEl.classList.remove('scale-95', 'opacity-0');
+                    chatBtnEl.classList.add('scale-0', 'opacity-0');
+                    chatInputEl.focus();
+                }, 10);
+            } else {
+                chatWindowEl.classList.add('scale-95', 'opacity-0');
+                chatBtnEl.classList.remove('scale-0', 'opacity-0');
+                setTimeout(() => {
+                    chatWindowEl.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        async function handleChatSubmit(e) {
+            e.preventDefault();
+            const message = chatInputEl.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            chatInputEl.value = '';
+            
+            // Simulate response
+            setTimeout(() => {
+                const response = currentLang === 'id' 
+                    ? "Terima kasih atas pertanyaan Anda tentang desain. Tim kami akan segera menghubungi Anda."
+                    : "Thanks for your design question. Our team will contact you shortly.";
+                addMessage(response, 'ai');
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `flex gap-3 items-start ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+            
+            const avatar = sender === 'ai' 
+                ? `<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>`
+                : `<div class="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center shrink-0 text-slate-600 mt-1"><i data-lucide="user" class="w-4 h-4"></i></div>`;
+
+            const bubbleClass = sender === 'ai'
+                ? 'bg-white text-slate-600 border border-slate-100 rounded-tl-none'
+                : 'bg-blue-600 text-white rounded-tr-none';
+
+            div.innerHTML = `
+                ${avatar}
+                <div class="${bubbleClass} p-3.5 rounded-2xl shadow-sm text-sm max-w-[85%] break-words">
+                    <p>${text}</p>
+                </div>
+            `;
+            chatMessagesEl.appendChild(div);
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+            lucide.createIcons();
         }
     </script>
 </body>
