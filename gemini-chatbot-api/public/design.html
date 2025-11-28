@@ -690,6 +690,22 @@
         const chatInputEl = document.getElementById('user-input'); 
         const sendBtnEl = document.getElementById('send-btn');
         let isChatOpen = false;
+        const CHAT_HISTORY_KEY = 'chat_history';
+
+        // Fungsi untuk memuat riwayat chat dari sessionStorage
+        function loadChatHistory() {
+            const history = JSON.parse(sessionStorage.getItem(CHAT_HISTORY_KEY) || '[]');
+            if (history.length > 0) {
+                chatMessagesEl.innerHTML = ''; // Hapus pesan selamat datang default
+                history.forEach(msg => addMessage(msg.text, msg.sender, false)); // Tampilkan history tanpa menyimpan ulang
+            }
+        }
+
+        // Fungsi untuk menyimpan pesan ke sessionStorage
+        function saveMessageToHistory(message) {
+            const history = JSON.parse(sessionStorage.getItem(CHAT_HISTORY_KEY) || '[]');
+            sessionStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify([...history, message]));
+        }
         const apiKey = ""; // API key is managed by the environment
 
         function toggleChat() {
@@ -711,29 +727,18 @@
         }
 
         async function callGeminiAPI(userMessage) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            
-            const systemPromptId = "Anda adalah asisten AI untuk IGNite Digital Agency. Jawab pertanyaan terkait layanan desain kami (Branding, UI/UX, Social Media Creative). Jawab dengan profesional dan ramah dalam Bahasa Indonesia.";
-            const systemPromptEn = "You are an AI assistant for IGNite Digital Agency. Answer questions related to our design services (Branding, UI/UX, Social Media Creative). Respond professionally and friendly in English.";
-
-            const finalPrompt = currentLang === 'id' ? systemPromptId : systemPromptEn;
-
-            const payload = {
-                contents: [{ parts: [{ text: userMessage }] }],
-                systemInstruction: { parts: [{ text: finalPrompt }] }
-            };
-
             try {
-                const response = await fetch(url, {
+                // Mengarah ke server backend (index.js)
+                const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({ message: userMessage })
                 });
 
                 if (!response.ok) throw new Error('API Error');
 
                 const data = await response.json();
-                return data.candidates?.[0]?.content?.parts?.[0]?.text || (currentLang === 'id' ? "Maaf, saya tidak dapat memproses permintaan Anda." : "Sorry, I can't process your request.");
+                return data.text || (currentLang === 'id' ? "Maaf, saya tidak dapat memproses permintaan Anda." : "Sorry, I can't process your request.");
             } catch (error) {
                 console.error(error);
                 return currentLang === 'id' ? "Maaf, terjadi kesalahan koneksi." : "Sorry, a connection error occurred.";
@@ -745,7 +750,7 @@
             const message = chatInputEl.value.trim();
             if (!message) return;
 
-            addMessage(message, 'user');
+            addMessage(message, 'user', true);
             chatInputEl.value = '';
             sendBtnEl.disabled = true;
 
@@ -754,7 +759,7 @@
             try {
                 const aiResponse = await callGeminiAPI(message);
                 removeTypingIndicator();
-                addMessage(aiResponse, 'ai');
+                addMessage(aiResponse, 'ai', true);
             } catch (error) {
                 removeTypingIndicator();
                 const errorMsg = currentLang === 'id' ? "Maaf, ada masalah." : "Sorry, something went wrong.";
@@ -765,7 +770,11 @@
             lucide.createIcons();
         }
 
-        function addMessage(text, sender) {
+        function addMessage(text, sender, save = true) {
+            if (save) {
+                saveMessageToHistory({ text, sender });
+            }
+
             const div = document.createElement('div');
             div.className = `flex gap-3 items-start ${sender === 'user' ? 'flex-row-reverse' : ''}`;
             
@@ -810,6 +819,9 @@
             const indicator = document.getElementById('typing-indicator');
             if (indicator) indicator.remove();
         }
+
+        // Panggil fungsi untuk memuat riwayat chat saat halaman dimuat
+        loadChatHistory();
     </script>
 </body>
 </html>
