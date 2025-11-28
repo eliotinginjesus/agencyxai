@@ -444,13 +444,13 @@
         });
 
         // --- CHAT LOGIC ---
-        var apiKey = ""; 
-        var chatWindowEl = document.getElementById('chat-window');
-        var chatBtnEl = document.getElementById('chat-btn');
-        var chatMessagesEl = document.getElementById('chat-messages');
-        var chatInputEl = document.getElementById('user-input'); 
-        var sendBtnEl = document.getElementById('send-btn');
-        var isChatOpen = false;
+        const apiKey = ""; // API key is managed by the environment
+        const chatWindowEl = document.getElementById('chat-window');
+        const chatBtnEl = document.getElementById('chat-btn');
+        const chatMessagesEl = document.getElementById('chat-messages');
+        const chatInputEl = document.getElementById('user-input'); 
+        const sendBtnEl = document.getElementById('send-btn');
+        let isChatOpen = false;
 
         function toggleChat() {
             isChatOpen = !isChatOpen;
@@ -471,23 +471,58 @@
         }
 
         async function callGeminiAPI(userMessage) {
-            return currentLang === 'id' 
-                ? "Terima kasih telah menghubungi IGNite. Ada yang bisa kami bantu mengenai profil perusahaan kami?"
-                : "Thanks for contacting IGNite. How can we assist you regarding our company profile?";
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const systemPromptId = "Anda adalah asisten AI untuk IGNite Digital Agency. Jawab pertanyaan terkait profil perusahaan kami (cerita, misi, visi, nilai). Jawab dengan profesional dan ramah dalam Bahasa Indonesia.";
+            const systemPromptEn = "You are an AI assistant for IGNite Digital Agency. Answer questions related to our company profile (story, mission, vision, values). Respond professionally and friendly in English.";
+
+            const finalPrompt = currentLang === 'id' ? systemPromptId : systemPromptEn;
+
+            const payload = {
+                contents: [{ parts: [{ text: userMessage }] }],
+                systemInstruction: { parts: [{ text: finalPrompt }] }
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) throw new Error('API Error');
+
+                const data = await response.json();
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || (currentLang === 'id' ? "Maaf, saya tidak dapat memproses permintaan Anda." : "Sorry, I can't process your request.");
+            } catch (error) {
+                console.error(error);
+                return currentLang === 'id' ? "Maaf, terjadi kesalahan koneksi." : "Sorry, a connection error occurred.";
+            }
         }
 
         async function handleChatSubmit(e) {
             e.preventDefault();
-            var message = chatInputEl.value.trim();
+            const message = chatInputEl.value.trim();
             if (!message) return;
 
             addMessage(message, 'user');
             chatInputEl.value = '';
-            
-            setTimeout(async () => {
-                var response = await callGeminiAPI(message);
-                addMessage(response, 'ai');
-            }, 1000);
+            sendBtnEl.disabled = true;
+
+            showTypingIndicator();
+
+            try {
+                const aiResponse = await callGeminiAPI(message);
+                removeTypingIndicator();
+                addMessage(aiResponse, 'ai');
+            } catch (error) {
+                removeTypingIndicator();
+                const errorMsg = currentLang === 'id' ? "Maaf, ada masalah." : "Sorry, something went wrong.";
+                addMessage(errorMsg, 'ai');
+            }
+
+            sendBtnEl.disabled = false;
+            lucide.createIcons();
         }
 
         function addMessage(text, sender) {
@@ -503,6 +538,29 @@
             chatMessagesEl.appendChild(div);
             chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
             lucide.createIcons();
+        }
+
+        function showTypingIndicator() {
+            const div = document.createElement('div');
+            div.id = 'typing-indicator';
+            div.className = 'flex gap-3 items-start';
+            div.innerHTML = `
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0 text-blue-600 mt-1"><i data-lucide="bot" class="w-4 h-4"></i></div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100">
+                    <div class="flex gap-1">
+                        <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
+                        <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.1s;"></span>
+                        <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s;"></span>
+                    </div>
+                </div>
+            `;
+            chatMessagesEl.appendChild(div);
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
         }
     </script>
 </body>

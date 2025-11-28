@@ -755,32 +755,26 @@
             });
         });
 
-        var apiKey = ""; // API key is managed by the environment
-
         async function callGeminiAPI(userMessage) {
-            var url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            
             const systemPromptId = "Anda adalah asisten AI untuk IGNite Digital Agency. Layanan kami: Desain UI/UX, Pemasaran Digital, dan Pengembangan Web. Jawablah dengan profesional, ramah, dan membantu dalam Bahasa Indonesia. Jangan menjawab hal di luar konteks agensi.";
             const systemPromptEn = "You are an AI assistant for IGNite Digital Agency. Our services: UI/UX Design, Digital Marketing, and Web Development. Respond professionally, friendly, and helpfully in English. Do not answer questions outside the context of the agency.";
 
             const finalPrompt = currentLang === 'id' ? systemPromptId : systemPromptEn;
 
-            var payload = {
-                contents: [{ parts: [{ text: userMessage }] }],
-                systemInstruction: { parts: [{ text: finalPrompt }] }
-            };
-
             try {
-                var response = await fetch(url, {
+                const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({ 
+                        message: userMessage,
+                        systemInstruction: finalPrompt 
+                    })
                 });
 
                 if (!response.ok) throw new Error('API Error');
 
-                var data = await response.json();
-                return data.candidates?.[0]?.content?.parts?.[0]?.text || (currentLang === 'id' ? "Maaf, saya tidak dapat memproses permintaan Anda saat ini." : "Sorry, I can't process your request right now.");
+                const data = await response.json();
+                return data.text || (currentLang === 'id' ? "Maaf, saya tidak dapat memproses permintaan Anda saat ini." : "Sorry, I can't process your request right now.");
             } catch (error) {
                 console.error(error);
                 return currentLang === 'id' ? "Maaf, terjadi kesalahan koneksi. Silakan coba lagi nanti." : "Sorry, there was a connection error. Please try again later.";
@@ -788,7 +782,6 @@
         }
 
         // --- CHAT WIDGET LOGIC ---
-        // Changed 'const' to 'var' to prevent redeclaration errors in non-module environments
         var chatWindowEl = document.getElementById('chat-window');
         var chatBtnEl = document.getElementById('chat-btn');
         var chatMessagesEl = document.getElementById('chat-messages');
